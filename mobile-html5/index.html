@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Consultas Tránsito DF</title>
+        <link href="./bootstrap.min.css" rel="stylesheet">
+        <link href="estilo.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="container">
+            <form>
+                <div class="form-group">
+                    <input class="form-control input-lg text-uppercase" id="placas" placeholder="Placas, ej. 999ZZZ" maxlength="6">
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" id="consultar">Consultar</button>
+            </form>
+            <div id="info-consulta">
+                <h3>Información del vehículo</h3>            
+                <div class="bg-info info-auto">
+                    <span class="titulo">Modelo: </span><span id="modelo">2012</span></br>
+                    <span class="titulo">Número de cilindros: </span><span id="numero_cilindros">4</span></br>
+                    <span class="titulo">Procedencia: </span><span id="procedencia">N</span></br>
+                    <span class="titulo">Valor factura: $</span><span id="valor_factura">615288</span></br>
+                    <span class="titulo">Clave vehicular: </span><span id="clave_vehicular">0044801</span></br>
+                    <span class="titulo">Fecha factura: </span><span id="fecha_factura">2012-11-30</span></br>
+                    <span class="titulo">RFC: </span><span id="rfc">Persona Moral</span></br>
+                    <span class="titulo">Valor depreciacion: $</span><span id="valor_depreciacion">46083.8</span></br>
+                </div>
+                
+                <h3>Adeudos de tenencia</h3>
+                <div class="bg-info info-auto">
+                    <span class="titulo">Año: </span><span>2013</span></br>
+                    <span class="titulo">Impuesto: $</span><span>13977.37</span></br>
+                    <span class="titulo">Derechos: $</span><span>411</span></br>
+                    <span class="titulo">Actualización: $</span><span>856.1</span></br>
+                    <span class="titulo">Recargos: $</span><span>42.15</span></br>
+                    <span class="titulo">TOTAL: $</span><span>15287</span></br>
+                </div>
+                
+                <h3>Infracciones</h3> 
+                <div class="bg-info info-auto">
+                    <span class="titulo">Folio: </span><span>04144419377</span></br>
+                    <span class="titulo">Fecha: </span><span>2014-07-11</span></br>
+                    <span class="titulo">Pagada: </span><span>true</span></br>
+                    <span class="titulo">Motivo: </span>
+                    <p>
+                        POR NO AJUSTARSE EL CINTUR\u00d3N DE SEGURIDAD Y ASEGURARSE QUE LOS DEM\u00c1S PASAJEROS TAMBI\u00c9N SE LO AJUSTEN, CUANDO SE TRATE DE MENORES DE 12 A\u00d1OS O PERSONAS CON DISCAPACIDAD, DEBER\u00c1N SER TRANSPORTADOS UTILIZANDO LOS SISTEMAS DE RETENCI\u00d3N PERTINENTES.
+                    </p>
+                    <span class="titulo">Fundamento: </span>
+                    <p>
+                    "articulo": " 5",
+                    "fraccion": " VI",
+                    "parrafo": " ",
+                    "inciso": " "
+                    </p>
+                    <span class="titulo">Multa en días de salario: </span><span>5</span></br>
+                    <span class="titulo">Multa estimada: $</span><span>336.45</span></br>
+                </div>
+            </div>
+        </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="./bootstrap.min.js"></script>
+    <script src="./consulta.js"></script>
+    </body>
+</html>

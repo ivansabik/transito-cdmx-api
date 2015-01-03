@@ -1,0 +1,13 @@
+body {
+  padding-top: 50px;
+}
+.info-auto {
+  text-align: left;
+}
+.titulo {
+  font-size: 18px;
+}
+
+.consulta {
+  visibility: hidden;
+}
