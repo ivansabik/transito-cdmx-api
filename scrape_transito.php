@@ -23,7 +23,7 @@ foreach($tablasInfracciones as $tablaInfrancciones) {
     if(preg_match("/Sin/i", $infraccion['folio']))
         break;
     $infraccion['fecha'] = html_entity_decode($tablaInfrancciones->find('td', 1)->plaintext); # Fecha de infracción
-    $infraccion['pagada'] = parseEstado($tablaInfrancciones->find('td', 2)->plaintext); # Situación
+    $infraccion['pagada'] = parsePagada($tablaInfrancciones->find('td', 2)->plaintext); # Situación
     if(!$infraccion['pagada']) {
         $infraccion['motivo'] = html_entity_decode($tablaInfrancciones->find('td', 5)->plaintext); # Motivo
         $infraccion['fundamento'] = parseFundamento($tablaInfrancciones->find('td', 7)->plaintext); # Fundamento
@@ -66,28 +66,28 @@ foreach($aniosAdeudosTenencia as $anioAdeudo) {
     $infoAuto['modelo'] = $jsonCalculoTenencia['modelo'];
     $infoAuto['num_cilindros'] = $jsonCalculoTenencia['num_cilindros'];
     $infoAuto['procedencia'] = $jsonCalculoTenencia['procedencia'];
-    $infoAuto['valor_factura'] = $jsonCalculoTenencia['valor_fact'];
+    $infoAuto['valor_factura'] = (double)$jsonCalculoTenencia['valor_fact'];
     $infoAuto['clave_vehicular'] = $jsonCalculoTenencia['cve_vehi'];
     $infoAuto['fecha_factura'] = $jsonCalculoTenencia['fech_factura'];
     $infoAuto['rfc'] = $jsonCalculoTenencia['rfc'];
-    $infoAuto['valor_depreciacion'] = $jsonCalculoTenencia['depresiacion']; # Nótese el "typo"
+    $infoAuto['valor_depreciacion'] = (double)$jsonCalculoTenencia['depresiacion']; # Nótese el "typo"
     # Específicos de adeudo
     $adeudoTenencia['anio'] = $anioAdeudo;
-    $adeudoTenencia['tenencia'] = $jsonCalculoTenencia['tenencia'];
-    $adeudoTenencia['subsidio'] = $jsonCalculoTenencia['subsidio'];
-    $adeudoTenencia['actualizacion_tenencia'] = $jsonCalculoTenencia['actualiza_ten'];
-    $adeudoTenencia['recargo_tenencia'] = $jsonCalculoTenencia['recargo_ten'];
-    $adeudoTenencia['condonacion_recargo_tenencia'] = $jsonCalculoTenencia['condonacion_recargo_ten'];
-    $adeudoTenencia['total_tenencia'] = $jsonCalculoTenencia['total_tenencia'];
-    $adeudoTenencia['derecho'] = $jsonCalculoTenencia['derecho'];
-    $adeudoTenencia['actulizacion_derecho'] = $jsonCalculoTenencia['actuliza_derecho'];
-    $adeudoTenencia['recargo_derecho'] = $jsonCalculoTenencia['recargo_derecho'];
-    $adeudoTenencia['total_derechos'] = $jsonCalculoTenencia['total_derechos'];
-    $adeudoTenencia['total_impuesto'] = $jsonCalculoTenencia['total_impuesto'];
-    $adeudoTenencia['total_derecho'] = $jsonCalculoTenencia['total_derecho'];
-    $adeudoTenencia['total_actualizacion'] = $jsonCalculoTenencia['total_actualiza'];
-    $adeudoTenencia['total_recargo'] = $jsonCalculoTenencia['total_recargo'];
-    $adeudoTenencia['total'] = $jsonCalculoTenencia['total'];
+    $adeudoTenencia['tenencia'] = (double)$jsonCalculoTenencia['tenencia'];
+    $adeudoTenencia['subsidio'] = (double)$jsonCalculoTenencia['subsidio'];
+    $adeudoTenencia['actualizacion_tenencia'] = (double)$jsonCalculoTenencia['actualiza_ten'];
+    $adeudoTenencia['recargo_tenencia'] = (double)$jsonCalculoTenencia['recargo_ten'];
+    $adeudoTenencia['condonacion_recargo_tenencia'] = (double)$jsonCalculoTenencia['condonacion_recargo_ten'];
+    $adeudoTenencia['total_tenencia'] = (double)$jsonCalculoTenencia['total_tenencia'];
+    $adeudoTenencia['derecho'] = (double)$jsonCalculoTenencia['derecho'];
+    $adeudoTenencia['actulizacion_derecho'] = (double)$jsonCalculoTenencia['actuliza_derecho'];
+    $adeudoTenencia['recargo_derecho'] = (double)$jsonCalculoTenencia['recargo_derecho'];
+    $adeudoTenencia['total_derechos'] = (double)$jsonCalculoTenencia['total_derechos'];
+    $adeudoTenencia['total_impuesto'] = (double)$jsonCalculoTenencia['total_impuesto'];
+    $adeudoTenencia['total_derecho'] = (double)$jsonCalculoTenencia['total_derecho'];
+    $adeudoTenencia['total_actualizacion'] = (double)$jsonCalculoTenencia['total_actualiza'];
+    $adeudoTenencia['total_recargo'] = (double)$jsonCalculoTenencia['total_recargo'];
+    $adeudoTenencia['total'] = (double)$jsonCalculoTenencia['total'];
     $adeudoTenencia['linea_captura'] = $jsonCalculoTenencia['lineacaptura'];
     $adeudoTenencia['vigencia'] = $jsonCalculoTenencia['vigencia'];
     $adeudoTenencia['dagid'] = $jsonCalculoTenencia['dagid'];
@@ -100,8 +100,8 @@ $infoAuto['infracciones'] = $infracciones;
 $infoAuto['adeudos_tenencia'] = $adeudosTenencia;
 
 # Funciones
-function parseEstado($textoEstado) {
-    if(preg_match("/NO/i", $textoEstado))
+function parsePagada($textoEstadoPago) {
+    if(preg_match("/NO/i", $textoEstadoPago))
         return false;
     return true;
 }

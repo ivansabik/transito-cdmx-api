@@ -11,7 +11,7 @@ if(!isset($_GET['placas'])) {
     die(json_encode($error));
 }
 $placas = $_GET['placas'];
-if(count($placas) != 6) {
+if(strlen($placas) != 6) {
     $error = array('mensaje_error' => 'Las placas son de 3 numeros y 3 letras', 'error' => 2);
     die(json_encode($error));
 }

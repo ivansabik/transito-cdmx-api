@@ -1,31 +1,54 @@
 API Tránsito DF
 ===========
 
-API REST no oficial de Tránsito DF, proporciona diversa info relacionada con unas placas como son adeudos de tenencia e infracciones. Puedes probarla en http://mexicapis.org.mx/transito-df/?placas=NUMERO_DE_PLACAS
+API REST no oficial de Tránsito DF, proporciona diversa info relacionada con aun auto por medio del número de placas como son adeudos de tenencia e infracciones. 
+Desarrollado como prueba en PHP, utiliza Composer para las librerías dependientes que son:
+
+- php-simple-html-dom-parser
+- php-curl-class
+- json-pretty
+
+Puedes probarla en http://mexicapis.org.mx/transito-df/?placas=NUMERO_DE_PLACAS
 
 ## API
 
 1. Instalamos dependencias con ```composer install```
 2. Corremos un server de pruebas en la carpeta del proyecto ```php -S localhost:5000```
-3. Probamos con un Carrot que manejó Mancera: ```http://localhost:5000/?placas=183YTP``
+3. Probamos con un Carrot que manejó Mancera: ```http://localhost:5000/?placas=183YTP```
 
 ![Carrot Mancera](http://438424cd093f86f0c7e0-2cd4f1b3b970cf6c05d6a60490c230b4.r88.cf2.rackcdn.com/mancera300613_g.jpg)
 
 ```
 {
-	"placas": "912TER",
-	"modelo": "2004",
+	"placas": "183YTP",
+	"modelo": "2012",
 	"num_cilindros": "4",
 	"procedencia": "N",
-	"valor_factura": "145000",
-	"clave_vehicular": "0320502",
-	"fecha_factura": "2004-02-06",
-	"rfc": "Persona Fisica",
-	"valor_depreciacion": "10875",
+	"valor_factura": "615288",
+	"clave_vehicular": "0044801",
+	"fecha_factura": "2012-11-30",
+	"rfc": "Persona Moral",
+	"valor_depreciacion": "446083.8",
 	"infracciones": [
 		{
-			"folio": "03038125318",
-			"fecha": "2013-08-02",
+			"folio": "04144419377",
+			"fecha": "2014-07-11",
+			"pagada": true,
+			"motivo": "POR NO AJUSTARSE EL CINTUR\u00d3N DE SEGURIDAD Y ASEGURARSE QUE LOS DEM\u00c1S PASAJEROS TAMBI\u00c9N SE LO AJUSTEN, CUANDO SE TRATE DE MENORES DE 12 A\u00d1OS O PERSONAS CON DISCAPACIDAD, DEBER\u00c1N SER TRANSPORTADOS UTILIZANDO LOS SISTEMAS DE RETENCI\u00d3N PERTINENTES.",
+			"fundamento": {
+				"articulo": " 5",
+				"fraccion": " VI",
+				"parrafo": " ",
+				"inciso": " "
+			},
+			"sancion": {
+				"dias_sm": 5,
+				"monto": 336.45
+			}
+		},
+		{
+			"folio": "03038482657",
+			"fecha": "2013-09-06",
 			"pagada": false,
 			"motivo": "POR NO RESPETAR LOS L\u00cdMITES DE VELOCIDAD ESTABLECIDOS EN V\u00cdAS PRIMARIAS, EN CASO DE NO HABER SE\u00d1ALAMIENTO   LA VELOCIDAD M\u00c1XIMA SER\u00c1 DE 70 KIL\u00d3METROS POR HORA",
 			"fundamento": {
@@ -40,126 +63,66 @@ API REST no oficial de Tránsito DF, proporciona diversa info relacionada con un
 			}
 		},
 		{
-			"folio": "03014010881",
-			"fecha": "2010-03-10",
-			"pagada": false,
-			"motivo": "POR NO RESPETAR LOS L\u00cdMITES DE VELOCIDAD ESTABLECIDOS EN V\u00cdAS PRIMARIAS, EN CASO DE NO HABER SE\u00d1ALAMIENTO   LA VELOCIDAD M\u00c1XIMA SER\u00c1 DE 70 KIL\u00d3METROS POR HORA",
+			"folio": "01124087441",
+			"fecha": "2012-12-19",
+			"pagada": true,
+			"motivo": "POR ESTACIONARSE EN ZONAS O V\u00cdAS P\u00daBLICAS  DONDE EXISTA SE\u00d1ALIZACI\u00d3N V\u00cdAL RESTRICTIVA",
 			"fundamento": {
-				"articulo": " 5",
-				"fraccion": " V",
+				"articulo": " 12",
+				"fraccion": " II",
 				"parrafo": " ",
-				"inciso": " A"
+				"inciso": " "
 			},
 			"sancion": {
-				"dias_sm": 5,
-				"monto": 336.45
-			}
-		},
-		{
-			"folio": "03013139729",
-			"fecha": "2009-12-22",
-			"pagada": false,
-			"motivo": "POR NO RESPETAR LOS L\u00cdMITES DE VELOCIDAD ESTABLECIDOS EN V\u00cdAS PRIMARIAS, EN CASO DE NO HABER SE\u00d1ALAMIENTO LA VELOCIDAD M\u00c1XIMA SER\u00c1 DE 70 KIL\u00d3METROS POR HORA",
-			"fundamento": {
-				"articulo": " 5",
-				"fraccion": " V",
-				"parrafo": " ",
-				"inciso": " A"
-			},
-			"sancion": {
-				"dias_sm": 5,
-				"monto": 336.45
+				"dias_sm": 10,
+				"monto": 672.9
 			}
 		}
 	],
 	"adeudos_tenencia": [
 		{
-			"anio": "2011",
-			"tenencia": "1070.08",
-			"subsidio": "0",
-			"actualizacion_tenencia": "158.26",
-			"recargo_tenencia": "638.49",
-			"condonacion_recargo_tenencia": null,
-			"total_tenencia": 1866.83,
-			"derecho": "303",
-			"actulizacion_derecho": "44.81",
-			"recargo_derecho": "33.66",
-			"total_derechos": "381.47",
-			"total_impuesto": "1070.08",
-			"total_derecho": "303",
-			"total_actualizacion": 203.07,
-			"total_recargo": "33.66",
-			"total": "2248",
-			"linea_captura": "84104XX912TERH1M5MR9",
-			"vigencia": "2015-01-10",
-			"dagid": "1137204",
-			"lineacapturaCB": "84104XX912TERH1M5MR9000002248813"
-		},
-		{
-			"anio": "2012",
-			"tenencia": "752.54",
-			"subsidio": "0",
-			"actualizacion_tenencia": "78.71",
-			"recargo_tenencia": "0",
-			"condonacion_recargo_tenencia": "0",
-			"total_tenencia": 831.25,
-			"derecho": "314",
-			"actulizacion_derecho": "32.84",
-			"recargo_derecho": "0",
-			"total_derechos": "346.84",
-			"total_impuesto": "752.54",
-			"total_derecho": "314",
-			"total_actualizacion": 111.55,
-			"total_recargo": "0",
-			"total": "1178",
-			"linea_captura": "85104XX912TERH1K0YT5",
-			"vigencia": "2015-01-10",
-			"dagid": "1137205",
-			"lineacapturaCB": "85104XX912TERH1K0YT5000001178690"
-		},
-		{
 			"anio": "2013",
-			"tenencia": "404.99",
+			"tenencia": "13977.37",
 			"subsidio": "0",
-			"actualizacion_tenencia": "24.09",
-			"recargo_tenencia": "41.53",
-			"condonacion_recargo_tenencia": "41.53",
-			"total_tenencia": 429.08,
+			"actualizacion_tenencia": "831.65",
+			"recargo_tenencia": "1433.51",
+			"condonacion_recargo_tenencia": "1433.51",
+			"total_tenencia": 14809.02,
 			"derecho": "411",
 			"actulizacion_derecho": "24.45",
 			"recargo_derecho": "42.15",
 			"total_derechos": "477.6",
-			"total_impuesto": "404.99",
+			"total_impuesto": "13977.37",
 			"total_derecho": "411",
-			"total_actualizacion": 48.54,
+			"total_actualizacion": 856.1,
 			"total_recargo": "42.15",
-			"total": "907",
-			"linea_captura": "85104XX912TERH1JQXTK",
+			"total": "15287",
+			"linea_captura": "85112XX183YTPH23Q866",
 			"vigencia": "2015-01-10",
-			"dagid": "1137212",
-			"lineacapturaCB": "85104XX912TERH1JQXTK000000907875"
+			"dagid": "1148602",
+			"lineacapturaCB": "85112XX183YTPH23Q866000015287550"
 		},
 		{
 			"anio": "2014",
-			"tenencia": "419.83",
+			"tenencia": "12352.27",
 			"subsidio": "0",
-			"actualizacion_tenencia": "8.85",
-			"recargo_tenencia": "34.63",
-			"condonacion_recargo_tenencia": "34.63",
-			"total_tenencia": 428.68,
+			"actualizacion_tenencia": "260.63",
+			"recargo_tenencia": "1019.12",
+			"condonacion_recargo_tenencia": "1019.12",
+			"total_tenencia": 12612.9,
 			"derecho": "434",
 			"actulizacion_derecho": "9.15",
 			"recargo_derecho": "35.80",
 			"total_derechos": "478.95",
-			"total_impuesto": "419.83",
+			"total_impuesto": "12352.27",
 			"total_derecho": "434",
-			"total_actualizacion": 18,
+			"total_actualizacion": 269.78,
 			"total_recargo": "35.80",
-			"total": "908",
-			"linea_captura": "85104XX912TERH1JRYU1",
+			"total": "13092",
+			"linea_captura": "85112XX183YTPH21A36M",
 			"vigencia": "2015-01-10",
-			"dagid": "1137214",
-			"lineacapturaCB": "85104XX912TERH1JRYU1000000908665"
+			"dagid": "1148603",
+			"lineacapturaCB": "85112XX183YTPH21A36M000013092861"
 		}
 	]
 }
