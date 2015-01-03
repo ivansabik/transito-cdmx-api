@@ -1,13 +1,15 @@
 API Tránsito DF
 ===========
 
-API REST no oficial de Tránsito DF, proporciona diversa info relacionada con unas placas como son adeudos de tenencia e infracciones.
+API REST no oficial de Tránsito DF, proporciona diversa info relacionada con unas placas como son adeudos de tenencia e infracciones. Puedes probarla en http://mexicapis.org.mx/transito-df/?placas=NUMERO_DE_PLACAS
 
 ## API
 
 1. Instalamos dependencias con ```composer install```
 2. Corremos un server de pruebas en la carpeta del proyecto ```php -S localhost:5000```
 3. Probamos con un Carrot que manejó Mancera: ```http://localhost:5000/?placas=183YTP``
+
+![Carrot Mancera](http://438424cd093f86f0c7e0-2cd4f1b3b970cf6c05d6a60490c230b4.r88.cf2.rackcdn.com/mancera300613_g.jpg)
 
 ```
 {
@@ -167,8 +169,6 @@ API REST no oficial de Tránsito DF, proporciona diversa info relacionada con un
 
 1. Instalamos dependencias con ```composer install```
 2. Probamos con un Carrot que manejó Mancera: ```php transito-df 183YTP```
-
-![Carrot Mancera](http://438424cd093f86f0c7e0-2cd4f1b3b970cf6c05d6a60490c230b4.r88.cf2.rackcdn.com/mancera300613_g.jpg)
 
 ```
 array(11) {
