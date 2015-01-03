@@ -1,0 +1,6 @@
+#!/usr/bin/php -q
+<?php
+# Lee args de CLI
+$placas = $argv[1]; # Convertir a uppercase, validar placa!
+require_once('scrape_transito.php');
+var_dump($infoAuto) . PHP_EOL;

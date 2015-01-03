@@ -1,4 +1,3 @@
-#!/usr/bin/php -q
 <?php
 require 'vendor/autoload.php';
 
@@ -9,9 +8,6 @@ define('SM_VIGENTE', 67.29);
 define('URL_INFRACCIONES', 'http://www.finanzas.df.gob.mx/sma/detallePlaca.php?placa=');
 define('URL_TENENCIA', 'http://www.finanzas.df.gob.mx/consultas_pagos/consulta_adeudosten.php?consulta=Consulta+de+adeudos&wlplaca=');
 define('URL_CALCULO_TENENCIA',  'http://www.finanzas.df.gob.mx/formato_lc/lc/tenencia/calculo/validaPlaca');
-
-# Lee args de CLI
-$placas = $argv[1]; # Convertir a uppercase, validar placa!
 
 $infoAuto = array();
 $infoAuto['placas'] = $placas;
@@ -102,8 +98,6 @@ foreach($aniosAdeudosTenencia as $anioAdeudo) {
 
 $infoAuto['infracciones'] = $infracciones;
 $infoAuto['adeudos_tenencia'] = $adeudosTenencia;
-
-var_dump($infoAuto) . PHP_EOL;
 
 # Funciones
 function parseEstado($textoEstado) {
