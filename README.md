@@ -8,7 +8,7 @@ Desarrollado como prueba en PHP, utiliza Composer para las librerías dependient
 - php-curl-class
 - json-pretty
 
-Puedes probarla en http://mexicapis.org.mx/transito-df/index.php , ej con un Carrot que manejó Mancera con http://mexicapis.org.mx/transitodf/index.php/vehiculos/183YTP:
+Puedes probarla en http://mexicapis.org.mx/transitodf/index.php , ej con un Carrot que manejó Mancera con http://mexicapis.org.mx/transitodf/index.php/vehiculos/183YTP:
 
 ![Carrot Mancera](http://438424cd093f86f0c7e0-2cd4f1b3b970cf6c05d6a60490c230b4.r88.cf2.rackcdn.com/mancera300613_g.jpg)
 
