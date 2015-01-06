@@ -1,20 +1,32 @@
 <?php
 error_reporting(0);
 header('Content-Type: application/json; charset=utf-8');
+require 'vendor/autoload.php';
 
-use Camspiers\JsonPretty\JsonPretty;
+use Luracast\Restler\Restler;
 
-# Lee args de GET
+$rest = new Restler();
+$rest->addAPIClass('TransitoDf');
+$rest->handle();
 
-if(!isset($_GET['placas'])) {
-    $error = array('mensaje_error' => 'Falta el parametro "placas"', 'error' => 1);
-    die(json_encode($error));
+class TransitoDf {
+    /**
+     * @url GET vehiculos/{placas}
+     */
+    function vehiculos($placas = null) {
+        if (!$placas) {
+            return array('error' => 'Falta el parametro "placa"', 'error' => 1);
+        }
+        $placas = strtoupper($placas);
+        if(strlen($placas) != 6) {
+            return array('mensaje_error' => 'Las placas son de 3 numeros y 3 letras', 'error' => 2);
+        }
+        require_once('consulta_placas.php');
+        return $consulta;
+    }
+
+    function verificentros() {
+		die(file_get_contents ('verificentros.json'));
+    }
 }
-$placas = $_GET['placas'];
-if(strlen($placas) != 6) {
-    $error = array('mensaje_error' => 'Las placas son de 3 numeros y 3 letras', 'error' => 2);
-    die(json_encode($error));
-}
-require_once('scrape_transito.php');
-$jsonPretty = new JsonPretty();
-echo $jsonPretty->prettify(json_encode($infoAuto));
+?>

@@ -1,0 +1,3 @@
+[submodule "tweet-2-json"]
+	path = tweet-2-json
+	url = git://github.com/cosmocatalano/tweet-2-json

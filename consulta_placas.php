@@ -1,6 +1,4 @@
 <?php
-require 'vendor/autoload.php';
-
 use Sunra\PhpSimple\HtmlDomParser;
 use \Curl\Curl;
 
@@ -80,7 +78,7 @@ foreach($aniosAdeudosTenencia as $anioAdeudo) {
     $adeudoTenencia['condonacion_recargo_tenencia'] = (double)$jsonCalculoTenencia['condonacion_recargo_ten'];
     $adeudoTenencia['total_tenencia'] = (double)$jsonCalculoTenencia['total_tenencia'];
     $adeudoTenencia['derecho'] = (double)$jsonCalculoTenencia['derecho'];
-    $adeudoTenencia['actulizacion_derecho'] = (double)$jsonCalculoTenencia['actuliza_derecho'];
+    $adeudoTenencia['actualizacion_derecho'] = (double)$jsonCalculoTenencia['actuliza_derecho'];
     $adeudoTenencia['recargo_derecho'] = (double)$jsonCalculoTenencia['recargo_derecho'];
     $adeudoTenencia['total_derechos'] = (double)$jsonCalculoTenencia['total_derechos'];
     $adeudoTenencia['total_impuesto'] = (double)$jsonCalculoTenencia['total_impuesto'];
@@ -90,14 +88,15 @@ foreach($aniosAdeudosTenencia as $anioAdeudo) {
     $adeudoTenencia['total'] = (double)$jsonCalculoTenencia['total'];
     $adeudoTenencia['linea_captura'] = $jsonCalculoTenencia['lineacaptura'];
     $adeudoTenencia['vigencia'] = $jsonCalculoTenencia['vigencia'];
-    $adeudoTenencia['dagid'] = $jsonCalculoTenencia['dagid'];
-    $adeudoTenencia['lineacapturaCB'] = $jsonCalculoTenencia['lineacapturaCB'];
+    #$adeudoTenencia['dagid'] = $jsonCalculoTenencia['dagid'];
+    #$adeudoTenencia['lineacapturaCB'] = $jsonCalculoTenencia['lineacapturaCB'];
     
     $adeudosTenencia[] = $adeudoTenencia;
 }
 
 $infoAuto['infracciones'] = $infracciones;
 $infoAuto['adeudos_tenencia'] = $adeudosTenencia;
+$consulta['vehiculo'] = $infoAuto;
 
 # Funciones
 function parsePagada($textoEstadoPago) {
@@ -124,3 +123,5 @@ function parseSancion($textoSancion) {
     $sancion['monto'] = (int)$textoSancion * SM_VIGENTE;
     return $sancion;
 }
+?>
+

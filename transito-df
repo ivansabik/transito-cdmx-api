@@ -1,6 +1,20 @@
 #!/usr/bin/php -q
 <?php
-# Lee args de CLI
-$placas = $argv[1]; # Convertir a uppercase, validar placa!
-require_once('scrape_transito.php');
-var_dump($infoAuto) . PHP_EOL;
+require 'vendor/autoload.php';
+use Camspiers\JsonPretty\JsonPretty;
+
+# CLI
+$opcion = $argv[1]; # Convertir a uppercase, validar placa!
+
+# actualizar
+if($opcion == 'actualizar') {
+    require 'actualizar.php';
+    print 'verificentros.json actualizado!' . PHP_EOL;
+}
+# placas
+if(strlen($opcion) == 6) {
+	$placas = strtoupper($opcion);
+    require 'consulta_placas.php';
+    var_dump($consulta) . PHP_EOL;
+}
+?>
