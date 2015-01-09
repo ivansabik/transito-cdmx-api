@@ -25,8 +25,12 @@ class TransitoDf {
         return $consulta;
     }
 
-    function verificentros() {
+    function verificentros($lat = null, $lon = null, $radio = null) {
 		die(file_get_contents ('verificentros.json'));
+    }
+    
+    function corralones($lat = null, $lon = null, $radio = null) {
+		die(file_get_contents ('corralones.json'));
     }
 }
 ?>

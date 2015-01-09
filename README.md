@@ -12,7 +12,8 @@ Puedes probarla en http://mexicapis.org.mx/transitodf/, ej. con un Carrot que ma
 
 ![Carrot Mancera](http://438424cd093f86f0c7e0-2cd4f1b3b970cf6c05d6a60490c230b4.r88.cf2.rackcdn.com/mancera300613_g.jpg)
 
-Y los verificentros en http://mexicapis.org.mx/transitodf/verificentros
+- Los verificentros en http://mexicapis.org.mx/transitodf/verificentros
+- Los corralones en http://mexicapis.org.mx/transitodf/corralones
 
 ## API
 
@@ -20,6 +21,7 @@ Endpoints:
 
 - /vehiculos/NUMERO_PLACA
 - /verificentros
+- /corralones
 
 ## CLI
 
@@ -147,46 +149,64 @@ Para los amantes de la línea de comandos:
 {
 	"verificentros": [
 		{
-			"VERIFICENTRO": "9001",
-			"RAZON SOCIAL": "CONTROL AMBIENTAL IXTAPALAPA, S.A. DE C.V.",
-			"DIRECCION": "PEDRO ACEVES # 70 ESQ. CAYETANO ANDRADE, COL. STA. MARTHA ACATITLA",
-			"DELEGACION": "IZTAPALAPA",
-			"TELEFONOS": "57335157 57347163",
-			"LATITUD": "19.3672",
-			"LONGITUD": "-99.0182",
+			"numero": "9001",
+			"razon_social": "CONTROL AMBIENTAL IXTAPALAPA, S.A. DE C.V.",
+			"direccion": "PEDRO ACEVES # 70 ESQ. CAYETANO ANDRADE, COL. STA. MARTHA ACATITLA",
+			"delegacion": "IZTAPALAPA",
+			"telefonos": "57335157 57347163",
+			"latitud": "19.3672",
+			"lon": "-99.0182",
 			"id": 0
 		},
 		{
-			"VERIFICENTRO": "9002",
-			"RAZON SOCIAL": "CONTROL ATMOSFERICO DE MEXICO, S.A. DE C.V.",
-			"DIRECCION": "RODOLFO GAONA # 86, COL. LOMAS DE SOTELO",
-			"DELEGACION": "MIGUEL HIDALGO",
-			"TELEFONOS": "52803460",
-			"LATITUD": "19.4522",
-			"LONGITUD": "-99.218",
+			"numero": "9002",
+			"razon_social": "CONTROL ATMOSFERICO DE MEXICO, S.A. DE C.V.",
+			"direccion": "RODOLFO GAONA # 86, COL. LOMAS DE SOTELO",
+			"delegacion": "MIGUEL HIDALGO",
+			"telefonos": "52803460",
+			"latitud": "19.4522",
+			"lon": "-99.218",
 			"id": 1
-		},
-		{
-			"VERIFICENTRO": "9003",
-			"RAZON SOCIAL": "CONTROL ATMOSFERICO DE MEXICO, S.A. DE C.V.",
-			"DIRECCION": "EJE 5 SUR, MANZANA 5 LOTE, 3 COL. CENTRAL DE ABASTOS",
-			"DELEGACION": "IZTAPALAPA",
-			"TELEFONOS": "56940734",
-			"LATITUD": "19.3802",
-			"LONGITUD": "-99.0901",
-			"id": 2
-		},
-		{
-			"VERIFICENTRO": "9004",
-			"RAZON SOCIAL": "CONTROL ATMOSFERICO DE MEXICO, S.A. DE C.V.",
-			"DIRECCION": "PROL. EJE CENTRAL LAZARO CARDENAS # 120, COL. LA CANDELARIA",
-			"DELEGACION": "COYOACAN",
-			"TELEFONOS": "56106585",
-			"LATITUD": "19.3335",
-			"LONGITUD": "-99.1513",
-			"id": 3
 		},
 		...
 	]
+}
+```
+
+### /corralones
+
+
+```
+{
+  "corralones": [
+    {
+      "nombre": "Cien Metros",
+      "calle": "Eje Central L\u00e1zaro C\u00e1rdenas",
+      "colonia": "Nueva Industrial Vallejo",
+      "delegacion": "Gustavo A. Madero",
+      "cp": "07700",
+      "calle_entre_1": "Cda. de 100 Metros",
+      "calle_entre_2": "Puente Fortuna",
+      "direccion": "Eje Central L\u00e1zaro C\u00e1rdenas(camell\u00f3n central) No. S\/N , Col. Nueva Industrial Vallejo",
+      "latitud": 19.48379,
+      "longitud": -99.14289,
+      "telefono": 57194368,
+      "estado": "activo"
+    },
+    {
+      "nombre": "El Zarco",
+      "calle": "Av. Talism\u00e1n",
+      "colonia": "San Juan de Arag\u00f3n",
+      "delegacion": "Gustavo A. Madero",
+      "cp": "07900",
+      "esquina": "Gran Canal",
+      "direccion": "Av. Talism\u00e1n s\/n esquina Gran Canal, Col. San Juan de Arag\u00f3n",
+      "latitud": -99.095006,
+      "longitud": 19.466936,
+      "telefono": 57417855,
+      "estado": "activo"
+    },
+    ...
+  ]
 }
 ```
