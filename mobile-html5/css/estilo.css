@@ -8,6 +8,10 @@ body {
   font-size: 18px;
 }
 
-.consulta {
+#info-consulta {
+  visibility: hidden;
+}
+
+#error {
   visibility: hidden;
 }

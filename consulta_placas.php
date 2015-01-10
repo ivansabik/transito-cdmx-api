@@ -111,8 +111,7 @@ function parseFundamento($textoFundamento) {
     $partesFundamento = preg_replace("/^.*\:/", "", $partesFundamento);
     $fundamento['articulo'] = $partesFundamento[0];
     $fundamento['fraccion'] = $partesFundamento[1];
-    $fundamento['parrafo'] = $partesFundamento[2];
-    $fundamento['inciso'] = $partesFundamento[3];
+    # Aqui se busca el texto del articulo/fraccion
     return $fundamento;
 }
 function parseSancion($textoSancion) {
