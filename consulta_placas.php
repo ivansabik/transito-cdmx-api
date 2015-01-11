@@ -10,6 +10,8 @@ define('URL_CALCULO_TENENCIA',  'http://www.finanzas.df.gob.mx/formato_lc/lc/ten
 $infoAuto = array();
 $infoAuto['placas'] = $placas;
 
+$sumaAdeudos = 0.00;
+
 # Infracciones
 $dom = HtmlDomParser::file_get_html(URL_INFRACCIONES . $placas);
 $tablasInfracciones = $dom->find('#tablaDatos');
@@ -68,7 +70,7 @@ foreach($aniosAdeudosTenencia as $anioAdeudo) {
     $infoAuto['clave_vehicular'] = $jsonCalculoTenencia['cve_vehi'];
     $infoAuto['fecha_factura'] = $jsonCalculoTenencia['fech_factura'];
     $infoAuto['rfc'] = $jsonCalculoTenencia['rfc'];
-    $infoAuto['valor_depreciacion'] = (double)$jsonCalculoTenencia['depresiacion']; # Nótese el "typo"
+    $infoAuto['depreciacion'] = (double)$jsonCalculoTenencia['depresiacion']; # Nótese el "typo"
     # Específicos de adeudo
     $adeudoTenencia['anio'] = $anioAdeudo;
     $adeudoTenencia['tenencia'] = (double)$jsonCalculoTenencia['tenencia'];
@@ -86,16 +88,19 @@ foreach($aniosAdeudosTenencia as $anioAdeudo) {
     $adeudoTenencia['total_actualizacion'] = (double)$jsonCalculoTenencia['total_actualiza'];
     $adeudoTenencia['total_recargo'] = (double)$jsonCalculoTenencia['total_recargo'];
     $adeudoTenencia['total'] = (double)$jsonCalculoTenencia['total'];
+    $sumaAdeudos += $sancion['total'];
     $adeudoTenencia['linea_captura'] = $jsonCalculoTenencia['lineacaptura'];
     $adeudoTenencia['vigencia'] = $jsonCalculoTenencia['vigencia'];
     #$adeudoTenencia['dagid'] = $jsonCalculoTenencia['dagid'];
     #$adeudoTenencia['lineacapturaCB'] = $jsonCalculoTenencia['lineacapturaCB'];
-    
     $adeudosTenencia[] = $adeudoTenencia;
 }
 
 $infoAuto['infracciones'] = $infracciones;
 $infoAuto['adeudos_tenencia'] = $adeudosTenencia;
+$infoAuto['total_adeudos'] = $sumaAdeudos;
+
+
 $consulta['vehiculo'] = $infoAuto;
 
 # Funciones
@@ -119,7 +124,9 @@ function parseSancion($textoSancion) {
     $textoSancion = html_entity_decode($textoSancion);
     $textoSancion = preg_replace('/[^\d]+/', '', $textoSancion);
     $sancion['dias_sm'] = (int)$textoSancion;
-    $sancion['monto'] = (int)$textoSancion * SM_VIGENTE;
+    $sancion['monto'] = (double)$textoSancion * SM_VIGENTE;
+    global $sumaAdeudos;
+    $sumaAdeudos += $sancion['monto'];
     return $sancion;
 }
 ?>
