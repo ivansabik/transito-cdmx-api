@@ -8,12 +8,12 @@ Desarrollado como prueba en PHP, utiliza Composer para las librerías dependient
 - php-curl-class
 - json-pretty
 
-Puedes probarla en http://mexicapis.org.mx/transitodf/, ej. con un Carrot que manejó Mancera con http://mexicapis.org.mx/transitodf/vehiculos/183YTP:
-
-![Carrot Mancera](http://438424cd093f86f0c7e0-2cd4f1b3b970cf6c05d6a60490c230b4.r88.cf2.rackcdn.com/mancera300613_g.jpg)
+Puedes probarla en http://mexicapis.org.mx/transitodf/, ej. con un Carrot que manejó Mancera (que por cierto le debe $30,000 pesos al gobierno) con http://mexicapis.org.mx/transitodf/vehiculos/183YTP:
 
 - Los verificentros en http://mexicapis.org.mx/transitodf/verificentros
 - Los corralones en http://mexicapis.org.mx/transitodf/corralones
+
+![Carrot Mancera](http://438424cd093f86f0c7e0-2cd4f1b3b970cf6c05d6a60490c230b4.r88.cf2.rackcdn.com/mancera300613_g.jpg)
 
 ## API
 
@@ -27,8 +27,8 @@ Endpoints:
 
 Para los amantes de la línea de comandos:
 
-- Información de un vehículo ```php trafico-df NUMERO_DE_PLACA``` ó ```./trafico-df NUMERO_DE_PLACA```
-- Lista de verificentros ```php trafico-df verificentros``` ó ```./trafico-df verificentros```
+- Información de un vehículo ```php transito-df NUMERO_DE_PLACA``` ó ```./transito-df NUMERO_DE_PLACA```
+- Lista de verificentros ```php transito-df verificentros``` ó ```./transito-df verificentros```
 
 ## Ejemplos
 
@@ -36,17 +36,18 @@ Para los amantes de la línea de comandos:
 
 
 ```
+
 {
     "vehiculo": {
         "placas": "183YTP",
-        "modelo": "2012",
-        "num_cilindros": "4",
-        "procedencia": "N",
+        "modelo": 2012,
+        "num_cilindros": 4,
+        "procedencia_nacional": true,
         "valor_factura": 615288,
         "clave_vehicular": "0044801",
         "fecha_factura": "2012-11-30",
         "rfc": "Persona Moral",
-        "valor_depreciacion": 446083.8,
+        "depreciacion": 446083.8,
         "infracciones": [
             {
                 "folio": "04144419377",
@@ -55,9 +56,7 @@ Para los amantes de la línea de comandos:
                 "motivo": "POR NO AJUSTARSE EL CINTURÓN DE SEGURIDAD Y ASEGURARSE QUE LOS DEMÁS PASAJEROS TAMBIÉN SE LO AJUSTEN, CUANDO SE TRATE DE MENORES DE 12 AÑOS O PERSONAS CON DISCAPACIDAD, DEBERÁN SER TRANSPORTADOS UTILIZANDO LOS SISTEMAS DE RETENCIÓN PERTINENTES.",
                 "fundamento": {
                     "articulo": " 5",
-                    "fraccion": " VI",
-                    "parrafo": " ",
-                    "inciso": " "
+                    "fraccion": " VI"
                 },
                 "sancion": {
                     "dias_sm": 5,
@@ -71,9 +70,7 @@ Para los amantes de la línea de comandos:
                 "motivo": "POR NO RESPETAR LOS LÍMITES DE VELOCIDAD ESTABLECIDOS EN VÍAS PRIMARIAS, EN CASO DE NO HABER SEÑALAMIENTO   LA VELOCIDAD MÁXIMA SERÁ DE 70 KILÓMETROS POR HORA",
                 "fundamento": {
                     "articulo": " 5",
-                    "fraccion": " V",
-                    "parrafo": " ",
-                    "inciso": " A"
+                    "fraccion": " V"
                 },
                 "sancion": {
                     "dias_sm": 5,
@@ -87,9 +84,7 @@ Para los amantes de la línea de comandos:
                 "motivo": "POR ESTACIONARSE EN ZONAS O VÍAS PÚBLICAS  DONDE EXISTA SEÑALIZACIÓN VÍAL RESTRICTIVA",
                 "fundamento": {
                     "articulo": " 12",
-                    "fraccion": " II",
-                    "parrafo": " ",
-                    "inciso": " "
+                    "fraccion": " II"
                 },
                 "sancion": {
                     "dias_sm": 10,
@@ -99,46 +94,47 @@ Para los amantes de la línea de comandos:
         ],
         "adeudos_tenencia": [
             {
-                "anio": "2013",
+                "anio": 2013,
                 "tenencia": 13977.37,
                 "subsidio": 0,
-                "actualizacion_tenencia": 831.65,
-                "recargo_tenencia": 1433.51,
-                "condonacion_recargo_tenencia": 1433.51,
-                "total_tenencia": 14809.02,
+                "actualizacion_tenencia": 904.33,
+                "recargo_tenencia": 1440.54,
+                "condonacion_recargo_tenencia": 1440.54,
+                "total_tenencia": 14881.7,
                 "derecho": 411,
-                "actualizacion_derecho": 24.45,
-                "recargo_derecho": 42.15,
-                "total_derechos": 477.6,
+                "actualizacion_derecho": 26.59,
+                "recargo_derecho": 42.35,
+                "total_derechos": 479.94,
                 "total_impuesto": 13977.37,
                 "total_derecho": 411,
-                "total_actualizacion": 856.1,
-                "total_recargo": 42.15,
-                "total": 15287,
-                "linea_captura": "85112XX183YTPH23Q866",
-                "vigencia": "2015-01-10"
+                "total_actualizacion": 930.92,
+                "total_recargo": 42.35,
+                "total": 15362,
+                "linea_captura": "85112XX183YTPJ33TR7K",
+                "vigencia": "2015-01-31"
             },
             {
-                "anio": "2014",
+                "anio": 2014,
                 "tenencia": 12352.27,
                 "subsidio": 0,
-                "actualizacion_tenencia": 260.63,
-                "recargo_tenencia": 1019.12,
-                "condonacion_recargo_tenencia": 1019.12,
-                "total_tenencia": 12612.9,
+                "actualizacion_tenencia": 322.39,
+                "recargo_tenencia": 1024.11,
+                "condonacion_recargo_tenencia": 1024.11,
+                "total_tenencia": 12674.66,
                 "derecho": 434,
-                "actualizacion_derecho": 9.15,
-                "recargo_derecho": 35.8,
-                "total_derechos": 478.95,
+                "actualizacion_derecho": 11.32,
+                "recargo_derecho": 35.98,
+                "total_derechos": 481.3,
                 "total_impuesto": 12352.27,
                 "total_derecho": 434,
-                "total_actualizacion": 269.78,
-                "total_recargo": 35.8,
-                "total": 13092,
-                "linea_captura": "85112XX183YTPH21A36M",
-                "vigencia": "2015-01-10"
+                "total_actualizacion": 333.71,
+                "total_recargo": 35.98,
+                "total": 13156,
+                "linea_captura": "85112XX183YTPJ31C781",
+                "vigencia": "2015-01-31"
             }
-        ]
+        ],
+        "total_adeudos": 29863.8
     }
 }
 ```

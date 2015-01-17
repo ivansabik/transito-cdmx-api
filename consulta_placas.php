@@ -9,8 +9,8 @@ define('URL_CALCULO_TENENCIA',  'http://www.finanzas.df.gob.mx/formato_lc/lc/ten
 
 $infoAuto = array();
 $infoAuto['placas'] = $placas;
-
-$sumaAdeudos = 0.00;
+# Las globales se iran en algún refactor a objetos
+$GLOBALS['sumaAdeudos'] = 0.00;
 
 # Infracciones
 $dom = HtmlDomParser::file_get_html(URL_INFRACCIONES . $placas);
@@ -63,16 +63,21 @@ foreach($aniosAdeudosTenencia as $anioAdeudo) {
     }
     
     # Repetimos los generales del auto
-    $infoAuto['modelo'] = $jsonCalculoTenencia['modelo'];
-    $infoAuto['num_cilindros'] = $jsonCalculoTenencia['num_cilindros'];
-    $infoAuto['procedencia'] = $jsonCalculoTenencia['procedencia'];
+    $infoAuto['modelo'] = (int)$jsonCalculoTenencia['modelo'];
+    $infoAuto['num_cilindros'] = (int)$jsonCalculoTenencia['num_cilindros'];
+    # Cambio de procedencia de N a boolean
+    if($jsonCalculoTenencia['procedencia'] == 'N') {
+        $infoAuto['procedencia_nacional'] = true;
+    } else {
+        $infoAuto['procedencia_nacional'] = false;
+    }
     $infoAuto['valor_factura'] = (double)$jsonCalculoTenencia['valor_fact'];
     $infoAuto['clave_vehicular'] = $jsonCalculoTenencia['cve_vehi'];
     $infoAuto['fecha_factura'] = $jsonCalculoTenencia['fech_factura'];
     $infoAuto['rfc'] = $jsonCalculoTenencia['rfc'];
     $infoAuto['depreciacion'] = (double)$jsonCalculoTenencia['depresiacion']; # Nótese el "typo"
     # Específicos de adeudo
-    $adeudoTenencia['anio'] = $anioAdeudo;
+    $adeudoTenencia['anio'] = (int)$anioAdeudo;
     $adeudoTenencia['tenencia'] = (double)$jsonCalculoTenencia['tenencia'];
     $adeudoTenencia['subsidio'] = (double)$jsonCalculoTenencia['subsidio'];
     $adeudoTenencia['actualizacion_tenencia'] = (double)$jsonCalculoTenencia['actualiza_ten'];
@@ -88,7 +93,7 @@ foreach($aniosAdeudosTenencia as $anioAdeudo) {
     $adeudoTenencia['total_actualizacion'] = (double)$jsonCalculoTenencia['total_actualiza'];
     $adeudoTenencia['total_recargo'] = (double)$jsonCalculoTenencia['total_recargo'];
     $adeudoTenencia['total'] = (double)$jsonCalculoTenencia['total'];
-    $sumaAdeudos += $sancion['total'];
+    $GLOBALS['sumaAdeudos'] += $adeudoTenencia['total'];
     $adeudoTenencia['linea_captura'] = $jsonCalculoTenencia['lineacaptura'];
     $adeudoTenencia['vigencia'] = $jsonCalculoTenencia['vigencia'];
     #$adeudoTenencia['dagid'] = $jsonCalculoTenencia['dagid'];
@@ -98,9 +103,7 @@ foreach($aniosAdeudosTenencia as $anioAdeudo) {
 
 $infoAuto['infracciones'] = $infracciones;
 $infoAuto['adeudos_tenencia'] = $adeudosTenencia;
-$infoAuto['total_adeudos'] = $sumaAdeudos;
-
-
+$infoAuto['total_adeudos'] = $GLOBALS['sumaAdeudos'];
 $consulta['vehiculo'] = $infoAuto;
 
 # Funciones
@@ -124,9 +127,9 @@ function parseSancion($textoSancion) {
     $textoSancion = html_entity_decode($textoSancion);
     $textoSancion = preg_replace('/[^\d]+/', '', $textoSancion);
     $sancion['dias_sm'] = (int)$textoSancion;
-    $sancion['monto'] = (double)$textoSancion * SM_VIGENTE;
-    global $sumaAdeudos;
-    $sumaAdeudos += $sancion['monto'];
+    $montoSancion = (double)$textoSancion * SM_VIGENTE;
+    $sancion['monto'] = $montoSancion;
+    $GLOBALS['sumaAdeudos'] += $montoSancion;
     return $sancion;
 }
 ?>
