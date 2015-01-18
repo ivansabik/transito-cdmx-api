@@ -11,7 +11,7 @@
       "direccion": "Eje Central L\u00e1zaro C\u00e1rdenas(camell\u00f3n central) No. S\/N , Col. Nueva Industrial Vallejo",
       "latitud": 19.48379,
       "longitud": -99.14289,
-      "telefono": 57194368,
+      "telefono": "57194368",
       "estado": "activo"
     },
     {
@@ -24,7 +24,7 @@
       "direccion": "Av. Talism\u00e1n s\/n esquina Gran Canal, Col. San Juan de Arag\u00f3n",
       "latitud": -99.095006,
       "longitud": 19.466936,
-      "telefono": 57417855,
+      "telefono": "57417855",
       "estado": "activo"
     },
     {
@@ -37,7 +37,7 @@
       "direccion": "Av. Insurgentes Norte s\/n Esq. Acueducto de Guadalupe, Col. Santa Isabel Tola",
       "latitud": -99.11773,
       "longitud": 19.50088,
-      "telefono": 57481757,
+      "telefono": "57481757",
       "estado": "activo"
     },
     {
@@ -51,7 +51,7 @@
       "direccion": "Av. Culturas entre Norte 5 y Fco. M\u00e1rquez, Col. San Pedro Xalpa",
       "latitud": -99.203008,
       "longitud": 19.509648,
-      "telefono": 53187013,
+      "telefono": "53187013",
       "estado": "activo"
     },
     {
@@ -64,7 +64,7 @@
       "direccion": "Cda.de Francisco Villa S\/N esq. Emiliano Zapata, Col. San Pedro Xalpa",
       "latitud": -99.214332,
       "longitud": 19.485464,
-      "telefono": 53187013,
+      "telefono": "53187013",
       "estado": "activo"
     },
     {
@@ -77,7 +77,7 @@
       "direccion": "Genaro Garc\u00eda Esq. Luis de Rosa, Col. Jard\u00edn Balbuena",
       "latitud": 19.4102924,
       "longitud": -99.1016403,
-      "telefono": 57641099,
+      "telefono": "57641099",
       "estado": "activo"
     },
     {
@@ -91,7 +91,7 @@
       "direccion": "Nezahualc\u00f3yotl S\/N entre Isabel La Cat\u00f3lica y 5 de Febrero, Col. Centro",
       "latitud": 19.424863,
       "longitud": -99.136285,
-      "telefono": 57099765,
+      "telefono": "57099765",
       "estado": "activo"
     },
     {
@@ -117,7 +117,7 @@
       "direccion": "Av. Taller No. 18 entre San Antonio Abad y Callej\u00f3n Agust\u00edn Delgado Col. Tr\u00e1nsito",
       "latitud": -99.134274,
       "longitud": 19.413437,
-      "telefono": 57414244,
+      "telefono": "57414244",
       "estado": "activo"
     },
     {
@@ -131,7 +131,7 @@
       "direccion": "Lago Ginebra Esq. con Lago Hielmar (a una Cuadra del Metro San Joaqu\u00edn), Col. San Joaqu\u00edn",
       "latitud": 19.444807,
       "longitud": -99.191768,
-      "telefono": 52505202,
+      "telefono": "52505202",
       "estado": "activo"
     },
     {
@@ -144,7 +144,7 @@
       "direccion": "Calle Presa Salinillas casi esq. Ingenieros Militares Col. Irrigaci\u00f3n",
       "latitud": -99.216843,
       "longitud": 19.444549,
-      "telefono": 53958781,
+      "telefono": "53958781",
       "estado": "activo"
     },
     {
@@ -158,7 +158,7 @@
       "direccion": "Eje 3 Sur s\/n  esq. Viaducto frente a Estacionamiento del Palacio de los Deportes, pta. 7 y 8. Col. Granjas M\u00e9xico",
       "latitud": -99.10301,
       "longitud": 19.406313,
-      "telefono": 56484170,
+      "telefono": "56484170",
       "estado": "activo"
     },
     {
@@ -171,7 +171,7 @@
       "direccion": "Juan \u00c1lvarez s\/n, esquina Calzada de la Viga, Col. Benito Ju\u00e1rez",
       "latitud": -99.121571,
       "longitud": 19.386093,
-      "telefono": 56331400,
+      "telefono": "56331400",
       "estado": "activo"
     },
     {
@@ -184,7 +184,7 @@
       "calle_entre_2": "Recreo",
       "direccion": "Oriente 110 s\/n, entre Troncoso y Recreo. Colonia Barrio San Miguel Iztacalco",
       "latitud": -99.114017,
-      "longitud": 19.392489,
+      "longitud": "19.392489",
       "estado": "activo"
     },
     {
@@ -197,7 +197,7 @@
       "direccion": "Calle Canarios s\/n esq. Div. del Norte Col. Bellavista ",
       "latitud": -99.193422,
       "longitud": 19.393478,
-      "telefono": 52734443,
+      "telefono": "52734443",
       "estado": "activo"
     },
     {
@@ -210,7 +210,7 @@
       "direccion": "Calle Grutas s\/n esq. Av. Central, Col.8 de Agosto ",
       "latitud": -99.189599,
       "longitud": 19.393187,
-      "telefono": 26141731,
+      "telefono": "26141731",
       "estado": "activo"
     },
     {
@@ -224,7 +224,7 @@
       "direccion": "Av. R\u00f3mulo O'Farril s\/n esq. Alfonso Caso (antes Luz y Fuerza) Col. Las \u00c1guilas",
       "latitud": -99.207155,
       "longitud": 19.352682,
-      "telefono": 55936891,
+      "telefono": "55936891",
       "estado": "activo"
     },
     {
@@ -239,7 +239,7 @@
       "direccion": "Av. Santa Fe s\/n entre Javier Barros y Vasco de Quiroga, Col. Santa Fe Pe\u00f1a Blanca",
       "latitud": 19.368948,
       "longitud": -99.257816,
-      "telefono": 52923227,
+      "telefono": "52923227",
       "estado": "activo"
     },
     {
@@ -253,7 +253,7 @@
       "direccion": "Av. 3 esq. Emilio Azc\u00e1rraga Vidaurreta (Estacionamiento del Deportivo Fco. I. Madero) Col. Ej\u00e9rcito de Oriente",
       "latitud": -99.03972,
       "longitud": 19.383037,
-      "telefono": 57737436,
+      "telefono": "57737436",
       "estado": "activo"
     },
     {
@@ -278,7 +278,7 @@
       "direccion": "Av. Fuerte Loreto s\/n esq. Juan Carlos Pacheco, Col. Ej\u00e9rcito de Oriente 4a Secci\u00f3n",
       "latitud": -99.031271,
       "longitud": 19.363239,
-      "telefono": 26336772,
+      "telefono": "26336772",
       "estado": "activo"
     },
     {
@@ -293,7 +293,7 @@
       "direccion": "Av. Enrique Contel, Unidad Hab. Ej\u00e9rcito Constitucionalista, entre Emilio Balli y Emilio Azc\u00e1rraga (dentro  del M\u00f3dulo 39, ex ruta 100)",
       "latitud": -99.044698,
       "longitud": 19.386113,
-      "telefono": 26337016,
+      "telefono": "26337016",
       "estado": "activo"
     },
     {
@@ -307,7 +307,7 @@
       "direccion": "Samuel Gompers s\/n entre Calle Genaro Estrada y Calle 71 Col. Santa Cruz Meyehualco",
       "latitud": -99.047166,
       "longitud": 19.350374,
-      "telefono": 56926343,
+      "telefono": "56926343",
       "estado": "activo"
     },
     {
@@ -347,7 +347,7 @@
       "direccion": "Calle Juan Mendoza s\/n esq. Tierra y Libertad Col. San Jos\u00e9 Tl\u00e1huac",
       "latitud": -99.000807,
       "longitud": 19.279448,
-      "telefono": 58429356,
+      "telefono": "58429356",
       "estado": "activo"
     },
     {
@@ -373,7 +373,7 @@
       "direccion": "Boulevard Adolfo Ruiz Cortines  (anillo Perif\u00e9rico Sur-lateral), Frente a la Calle Hacienda de Cristo, Col. San Lorenzo La Cebada",
       "latitud": 19.291896,
       "longitud": -99.1080447,
-      "telefono": 55948129,
+      "telefono": "55948129",
       "estado": "activo"
     },
     {
@@ -386,7 +386,7 @@
       "direccion": "Carretera vieja a San Pablo s\/n y Calle Acueducto, Col. Ampliaci\u00f3n La Noria",
       "latitud": 19.2622433,
       "longitud": -99.1254989,
-      "telefono": 55558878,
+      "telefono": "55558878",
       "estado": "activo"
     },
     {
@@ -413,7 +413,7 @@
       "direccion": "Calle Antonio Delf\u00edn Madrigal entre Enrique Ure\u00f1a y Av. Aztecas Col Santo Domingo",
       "latitud": -99.173777,
       "longitud": 19.321997,
-      "telefono": 58388388,
+      "telefono": "58388388",
       "estado": "activo"
     },
     {
@@ -428,7 +428,7 @@
       "direccion": "Av. Eduardo Molina No. 1639, esquina Oriente 157 Col. El Coyol (ex M\u00f3dulo Ruta 100)",
       "latitud": -99.094137,
       "longitud": 19.486964,
-      "telefono": 57376224,
+      "telefono": "57376224",
       "estado": "activo"
     },
     {
@@ -443,7 +443,7 @@
       "direccion": "Poniente 152 No. 1020 entre Av. Ceyl\u00e1n y Vallejo. Col. Prensa Nacional",
       "latitud": -99.171277,
       "longitud": 19.507423,
-      "telefono": 55672187,
+      "telefono": "55672187",
       "estado": "activo"
     },
     {
@@ -458,7 +458,7 @@
       "direccion": "Calzada Azcapotzalco-La Villa No. 624 entre Ceyl\u00e1n y Norte 59 Col. Industrial Vallejo",
       "latitud": -99.167469,
       "longitud": 19.490473,
-      "telefono": 53689724,
+      "telefono": "53689724",
       "estado": "activo"
     }
   ]
