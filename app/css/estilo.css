@@ -3,6 +3,8 @@ body {
 }
 .info-auto {
   text-align: left;
+  padding: 2%;
+  border-radius: 20px;
 }
 .titulo {
   font-size: 18px;

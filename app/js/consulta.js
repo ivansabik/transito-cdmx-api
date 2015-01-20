@@ -26,16 +26,16 @@ $(document).ready(function(){
                 var divAdeudo = '<div class="bg-info info-auto"> \
                 <span class="titulo">Año: </span> \
                 <span>'+adeudo['anio']+'</span></br> \
-                <span class="titulo">Impuesto: $</span> \
-                <span>'+adeudo['total_impuesto']+'</span></br> \
-                <span class="titulo">Derechos: $</span> \
-                <span>'+adeudo['total_derecho']+'</span></br> \
-                <span class="titulo">Actualización: $</span> \
-                <span>'+adeudo['total_actualizacion']+'</span></br> \
-                <span class="titulo">Recargos: $</span> \
-                <span>'+adeudo['total_recargo']+'</span></br> \
-                <span class="titulo">Total: $</span> \
-                <span>'+adeudo['total_tenencia']+'</span></br> \
+                <span class="titulo">Impuesto: </span> \
+                <span class="cacao">'+adeudo['total_impuesto']+'</span></br> \
+                <span class="titulo">Derechos: </span> \
+                <span class="cacao">'+adeudo['total_derecho']+'</span></br> \
+                <span class="titulo">Actualización: </span> \
+                <span class="cacao">'+adeudo['total_actualizacion']+'</span></br> \
+                <span class="titulo">Recargos: </span> \
+                <span class="cacao">'+adeudo['total_recargo']+'</span></br> \
+                <span class="titulo">Total: </span> \
+                <span class="cacao">'+adeudo['total_tenencia']+'</span></br> \
                 </div></br>';
                 $('#adeudos-tenencia').append(divAdeudo);
             }
@@ -55,11 +55,14 @@ $(document).ready(function(){
 				<span class="titulo">Pagada: </span><span>'+textoPagada+'</span></br> \
 				<span class="titulo">Motivo: </span><span>'+infraccion['motivo']+'</span></br> \
                 <span class="titulo">Multa en días de salario: </span><span>'+infraccion['sancion']['dias_sm']+'</span></br> \
-				<span class="titulo">Multa estimada: $</span><span>'+infraccion['sancion']['monto']+'</span></br> \
+				<span class="titulo">Multa estimada: </span><span class="cacao">'+infraccion['sancion']['monto']+'</span></br> \
                 </div></br>';
                 $('#infracciones').append(divInfraccion);
             }
         }
+        
+        $('.cacao').autoNumeric('init', {aSign: '$ '});    
+        
         console.log(resp);
     };
     var printError = function( req, status, err ) {
