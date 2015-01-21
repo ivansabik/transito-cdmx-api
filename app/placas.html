@@ -11,27 +11,27 @@
 
     <body>
         <div class="container">
-				<h1>Tránsito DF</h1> 
-				<div id="cargando">
-					<button class="btn btn-lg btn-warning"><span class="fa fa-refresh fa-spin"></span> Cargando...</button>
+				<h1 class="texto-logo centrado"><img src="/app/img/kaeffer.png"> Tránsito DF</h1>
+				<div id="cargando" class="centrado">
+					<button class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Cargando...</button>
 				</div>
-				<div id="error">
-				</div>
-				<div id="info-consulta">
+				<div id="error" class="invisible"></div>
+				<div id="info-consulta" class="invisible">
 					<h3>Información del vehículo</h3>            
-					<div class="bg-info info-auto">
+					<div class="bg-info cuadro-info">
+                        <span class="titulo">Placas: </span><span id="placas"></span></br>
 						<span class="titulo">Modelo: </span><span id="modelo"></span></br>
-						<span class="titulo">Número de cilindros: </span><span id="numero_cilindros"></span></br>
+						<span class="titulo">Número de cilindros: </span><span id="numero-cilindros"></span></br>
 						<span class="titulo">Procedencia: </span><span id="procedencia"></span></br>
-						<span class="titulo">Valor factura: </span><span id="valor_factura" class="cacao"></span></br>
-						<span class="titulo">Clave vehicular: </span><span id="clave_vehicular"></span></br>
-						<span class="titulo">Fecha factura: </span><span id="fecha_factura"></span></br>
+						<span class="titulo">Valor factura: </span><span id="valor-factura" class="cacao"></span></br>
+						<span class="titulo">Clave vehicular: </span><span id="clave-vehicular"></span></br>
+						<span class="titulo">Fecha factura: </span><span id="fecha-factura"></span></br>
 						<span class="titulo">RFC: </span><span id="rfc"></span></br>
 						<span class="titulo">Monto depreciación: </span><span id="depreciacion" class="cacao"></span></br>
-                        <span class="titulo">Total adeudos: </span><span id="total_adeudos" class="cacao"></span>
+                        <span class="titulo">Total adeudos: </span><span id="total-adeudos" class="cacao"></span>
 					</div>
                     					
-					<h3>Adeudos de tenencia</h3>
+					<h3>Adeudos tenencia</h3>
                     <div id="adeudos-tenencia"></div>
 					
 					<h3>Infracciones</h3> 
@@ -42,5 +42,6 @@
     <script src="/app/js/bootstrap.min.js"></script>
     <script src="/app/js/consulta.js"></script>
     <script src="/app/js/autoNumeric.js"></script>
+    <script src="/app/js/jquery.fittext.js"></script>
     </body>
 </html>

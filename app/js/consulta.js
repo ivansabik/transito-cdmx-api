@@ -1,29 +1,28 @@
 $(document).ready(function(){
-    var updatePage = function( resp ) {
-        // Info general vehiculo
-        vehiculo = resp['vehiculo'];
+    placas = document.URL.split('#')[1].toUpperCase();
+    var mostrarResultados = function(consultaJson) {
+        $('#placas').html(placas);
+        vehiculo = consultaJson['vehiculo'];
         $('#modelo').html(vehiculo['modelo']);
-        $('#numero_cilindros').html(vehiculo['']);
+        $('#numero-cilindros').html(vehiculo['']);
         if(vehiculo['procedencia_nacional'] == true) {
             $('#procedencia').html('Nacional');
         } else {
             $('#procedencia').html('Extranjera');
         }
-        $('#valor_factura').html(vehiculo['valor_factura']);
-        $('#clave_vehicular').html(vehiculo['clave_vehicular']);
-        $('#fecha_factura').html(vehiculo['fecha_factura']);
+        $('#valor-factura').html(vehiculo['valor_factura']);
+        $('#clave-vehicular').html(vehiculo['clave_vehicular']);
+        $('#fecha-factura').html(vehiculo['fecha_factura']);
         $('#rfc').html(vehiculo['rfc']);
         $('#depreciacion').html(vehiculo['depreciacion']);
-        $('#total_adeudos').html(vehiculo['total_adeudos']);
-
+        $('#total-adeudos').html(vehiculo['total_adeudos']);
         $('#info-consulta').css('visibility','visible');
         $("#cargando").hide();
-        // Tenencias
-        var adeudos_tenencia = vehiculo['adeudos_tenencia']
-        if(adeudos_tenencia.length > 0) {
-            for (i = 0; i < adeudos_tenencia.length; i++) {
-                var adeudo = adeudos_tenencia[i];
-                var divAdeudo = '<div class="bg-info info-auto"> \
+        var adeudosTenencia = vehiculo['adeudos_tenencia']
+        if(adeudosTenencia.length > 0) {
+            for (i = 0; i < adeudosTenencia.length; i++) {
+                var adeudo = adeudosTenencia[i];
+                var divAdeudo = '<div class="bg-info cuadro-info"> \
                 <span class="titulo">Año: </span> \
                 <span>'+adeudo['anio']+'</span></br> \
                 <span class="titulo">Impuesto: </span> \
@@ -40,7 +39,6 @@ $(document).ready(function(){
                 $('#adeudos-tenencia').append(divAdeudo);
             }
         }
-        // Infracciones
         var infraciones = vehiculo['infracciones']
         if(infraciones.length > 0) {
             for (i = 0; i < infraciones.length; i++) {
@@ -49,7 +47,7 @@ $(document).ready(function(){
                 if(infraccion['pagada'] == true) {
                     textoPagada = 'Sí';
                 }
-                var divInfraccion = '<div class="bg-info info-auto"> \
+                var divInfraccion = '<div class="bg-info cuadro-info"> \
                 <span class="titulo">Folio: </span><span>'+infraccion['folio']+'</span></br> \
 				<span class="titulo">Fecha: </span><span>'+infraccion['fecha']+'</span></br> \
 				<span class="titulo">Pagada: </span><span>'+textoPagada+'</span></br> \
@@ -60,19 +58,17 @@ $(document).ready(function(){
                 $('#infracciones').append(divInfraccion);
             }
         }
-        
-        $('.cacao').autoNumeric('init', {aSign: '$ '});    
-        
-        console.log(resp);
+        $('.cacao').autoNumeric('init', {aSign: '$ '});
+        //console.log(consultaJson);
     };
-    var printError = function( req, status, err ) {
+    var mostrarError = function( req, status, err ) {
         console.log( 'Err0r!', status, err );
     };
     var ajaxOptions = {
-        url: '/transitodf/vehiculos/912TER',
+        url: '/transitodf/vehiculos/'+placas,
         dataType: 'json',
-        success: updatePage,
-        error: printError
+        success: mostrarResultados,
+        error: mostrarError
     };
     $.ajax(ajaxOptions);
 });
