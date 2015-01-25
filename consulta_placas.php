@@ -28,7 +28,7 @@ foreach($tablasInfracciones as $tablaInfrancciones) {
         $infraccion['motivo'] = html_entity_decode($tablaInfrancciones->find('td', 5)->plaintext); # Motivo
         $infraccion['fundamento'] = parseFundamento($tablaInfrancciones->find('td', 7)->plaintext); # Fundamento
         $infraccion['sancion'] = parseSancion(html_entity_decode($tablaInfrancciones->find('td', 9)->plaintext)); #Sanción
-        $GLOBALS['sumaAdeudos'] += $infraccion['sancion'];
+        $GLOBALS['sumaAdeudos'] += $infraccion['sancion']['monto'];
     } else {
         $infraccion['motivo'] = html_entity_decode($tablaInfrancciones->find('td', 4)->plaintext); # Motivo
         $infraccion['fundamento'] = parseFundamento($tablaInfrancciones->find('td', 6)->plaintext); # Fundamento
