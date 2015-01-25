@@ -28,6 +28,7 @@ foreach($tablasInfracciones as $tablaInfrancciones) {
         $infraccion['motivo'] = html_entity_decode($tablaInfrancciones->find('td', 5)->plaintext); # Motivo
         $infraccion['fundamento'] = parseFundamento($tablaInfrancciones->find('td', 7)->plaintext); # Fundamento
         $infraccion['sancion'] = parseSancion(html_entity_decode($tablaInfrancciones->find('td', 9)->plaintext)); #Sanción
+        $GLOBALS['sumaAdeudos'] += $infraccion['sancion'];
     } else {
         $infraccion['motivo'] = html_entity_decode($tablaInfrancciones->find('td', 4)->plaintext); # Motivo
         $infraccion['fundamento'] = parseFundamento($tablaInfrancciones->find('td', 6)->plaintext); # Fundamento
@@ -65,12 +66,12 @@ foreach($aniosAdeudosTenencia as $anioAdeudo) {
     # Repetimos los generales del auto
     $infoAuto['modelo'] = (int)$jsonCalculoTenencia['modelo'];
     $infoAuto['num_cilindros'] = (int)$jsonCalculoTenencia['num_cilindros'];
-    # Cambio de procedencia de N a boolean
-    if($jsonCalculoTenencia['procedencia'] == 'N') {
-        $infoAuto['procedencia_nacional'] = true;
-    } else {
-        $infoAuto['procedencia_nacional'] = false;
-    }
+    if($jsonCalculoTenencia['procedencia'] == 'N')
+        $infoAuto['procedencia_nacional'] = 'Nacional';
+    elseif($jsonCalculoTenencia['procedencia'] == 'E')
+        $infoAuto['procedencia_nacional'] = 'Extranjera';
+    else 
+		$infoAuto['procedencia_nacional'] = procedencia_nacional;
     $infoAuto['valor_factura'] = (double)$jsonCalculoTenencia['valor_fact'];
     $infoAuto['clave_vehicular'] = $jsonCalculoTenencia['cve_vehi'];
     $infoAuto['fecha_factura'] = $jsonCalculoTenencia['fech_factura'];
@@ -92,7 +93,6 @@ foreach($aniosAdeudosTenencia as $anioAdeudo) {
     $adeudoTenencia['total_actualizacion'] = (double)$jsonCalculoTenencia['total_actualiza'];
     $adeudoTenencia['total_recargo'] = (double)$jsonCalculoTenencia['total_recargo'];
     $adeudoTenencia['total'] = (double)$jsonCalculoTenencia['total'];
-    $GLOBALS['sumaAdeudos'] += $adeudoTenencia['total'];
     #$adeudoTenencia['linea_captura'] = $jsonCalculoTenencia['lineacaptura'];
     #$adeudoTenencia['vigencia'] = $jsonCalculoTenencia['vigencia'];
     #$adeudoTenencia['dagid'] = $jsonCalculoTenencia['dagid'];
@@ -116,8 +116,8 @@ function parseFundamento($textoFundamento) {
     $textoFundamento = html_entity_decode($textoFundamento);
     $partesFundamento = explode(',', $textoFundamento);
     $partesFundamento = preg_replace("/^.*\:/", "", $partesFundamento);
-    $fundamento['articulo'] = $partesFundamento[0];
-    $fundamento['fraccion'] = $partesFundamento[1];
+    $fundamento['articulo'] = preg_replace('/\s+/', '', $partesFundamento[0]);
+    $fundamento['fraccion'] = preg_replace('/\s+/', '', $partesFundamento[1]);
     # Aqui se busca el texto del articulo/fraccion
     return $fundamento;
 }
@@ -128,7 +128,6 @@ function parseSancion($textoSancion) {
     $sancion['dias_sm'] = (int)$textoSancion;
     $montoSancion = (double)$textoSancion * SM_VIGENTE;
     $sancion['monto'] = $montoSancion;
-    $GLOBALS['sumaAdeudos'] += $montoSancion;
     return $sancion;
 }
 ?>
