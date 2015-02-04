@@ -67,11 +67,11 @@ foreach($aniosAdeudosTenencia as $anioAdeudo) {
     $infoAuto['modelo'] = (int)$jsonCalculoTenencia['modelo'];
     $infoAuto['num_cilindros'] = (int)$jsonCalculoTenencia['num_cilindros'];
     if($jsonCalculoTenencia['procedencia'] == 'N')
-        $infoAuto['procedencia_nacional'] = 'Nacional';
+        $infoAuto['procedencia'] = 'Nacional';
     elseif($jsonCalculoTenencia['procedencia'] == 'E')
-        $infoAuto['procedencia_nacional'] = 'Extranjera';
+        $infoAuto['procedencia'] = 'Extranjera';
     else 
-		$infoAuto['procedencia_nacional'] = procedencia_nacional;
+		$infoAuto['procedencia'] = procedencia_nacional;
     $infoAuto['valor_factura'] = (double)$jsonCalculoTenencia['valor_fact'];
     $infoAuto['clave_vehicular'] = $jsonCalculoTenencia['cve_vehi'];
     $infoAuto['fecha_factura'] = $jsonCalculoTenencia['fech_factura'];
@@ -93,10 +93,7 @@ foreach($aniosAdeudosTenencia as $anioAdeudo) {
     $adeudoTenencia['total_actualizacion'] = (double)$jsonCalculoTenencia['total_actualiza'];
     $adeudoTenencia['total_recargo'] = (double)$jsonCalculoTenencia['total_recargo'];
     $adeudoTenencia['total'] = (double)$jsonCalculoTenencia['total'];
-    #$adeudoTenencia['linea_captura'] = $jsonCalculoTenencia['lineacaptura'];
-    #$adeudoTenencia['vigencia'] = $jsonCalculoTenencia['vigencia'];
-    #$adeudoTenencia['dagid'] = $jsonCalculoTenencia['dagid'];
-    #$adeudoTenencia['lineacapturaCB'] = $jsonCalculoTenencia['lineacapturaCB'];
+    $GLOBALS['sumaAdeudos'] += $adeudoTenencia['total'];
     $adeudosTenencia[] = $adeudoTenencia;
 }
 
