@@ -46,7 +46,31 @@ foreach($tdAdeudos as $tdAdeudo) {
         $aniosAdeudosTenencia[] = $tdAdeudo->plaintext;
 }
 
+# Si no tiene adeudos de tenencia, busca info general
+# TODO: Refactor se repite abajo
+if(empty($aniosAdeudosTenencia)) {
+	$curl = new Curl();
+	$curl->post(URL_CALCULO_TENENCIA, array(
+		'placa' => $placas,
+		'ejercicio' => 2015,
+	));
+	$jsonCalculoTenencia = json_decode($curl->response, true);
+	$infoAuto['modelo'] = (int)$jsonCalculoTenencia['modelo'];
+	if($jsonCalculoTenencia['procedencia'] == 'N')
+		$infoAuto['procedencia'] = 'Nacional';
+	elseif($jsonCalculoTenencia['procedencia'] == 'E')
+		$infoAuto['procedencia'] = 'Extranjera';
+	else 
+		$infoAuto['procedencia'] = procedencia_nacional;
+	$infoAuto['valor_factura'] = (double)$jsonCalculoTenencia['valor_fact'];
+	$infoAuto['clave_vehicular'] = $jsonCalculoTenencia['cve_vehi'];
+	$infoAuto['fecha_factura'] = $jsonCalculoTenencia['fech_factura'];
+	$infoAuto['rfc'] = $jsonCalculoTenencia['rfc'];
+	$infoAuto['depreciacion'] = (double)$jsonCalculoTenencia['depresiacion'];
+}
+
 # Cálculos de tenencias que adeuda
+# TODO: Refactor se repite arriba
 $adeudosTenencia = array();
 foreach($aniosAdeudosTenencia as $anioAdeudo) {
     $adeudoTenencia = array();
@@ -65,7 +89,6 @@ foreach($aniosAdeudosTenencia as $anioAdeudo) {
     
     # Repetimos los generales del auto
     $infoAuto['modelo'] = (int)$jsonCalculoTenencia['modelo'];
-    $infoAuto['num_cilindros'] = (int)$jsonCalculoTenencia['num_cilindros'];
     if($jsonCalculoTenencia['procedencia'] == 'N')
         $infoAuto['procedencia'] = 'Nacional';
     elseif($jsonCalculoTenencia['procedencia'] == 'E')
