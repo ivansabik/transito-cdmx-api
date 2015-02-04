@@ -61,7 +61,7 @@ if(empty($aniosAdeudosTenencia)) {
 	elseif($jsonCalculoTenencia['procedencia'] == 'E')
 		$infoAuto['procedencia'] = 'Extranjera';
 	else 
-		$infoAuto['procedencia'] = procedencia_nacional;
+		$infoAuto['procedencia'] = $jsonCalculoTenencia['procedencia'];
 	$infoAuto['valor_factura'] = (double)$jsonCalculoTenencia['valor_fact'];
 	$infoAuto['clave_vehicular'] = $jsonCalculoTenencia['cve_vehi'];
 	$infoAuto['fecha_factura'] = $jsonCalculoTenencia['fech_factura'];
