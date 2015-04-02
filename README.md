@@ -1,19 +1,28 @@
 API Tránsito DF
 ===========
 
+[![Build Status](https://travis-ci.org/mandroslabs/transito-df.svg)](https://travis-ci.org/mexicapis/transito-df-api)
+
 API REST no oficial de Tránsito DF, proporciona diversa info relacionada con aun auto por medio del número de placas como son adeudos de tenencia e infracciones. 
-Desarrollado como prueba en PHP, utiliza Composer para las librerías dependientes que son:
+Desarrollado con Javascript (Node), utiliza las libs:
 
-- php-simple-html-dom-parser
-- php-curl-class
-- json-pretty
+- express
+- x-ray
 
-Puedes probarla en http://mexicapis.org.mx/transitodf/, ej. con un Carrot que manejó Mancera (que por cierto le debe $30,000 pesos al gobierno) con http://mexicapis.org.mx/transitodf/vehiculos/183YTP:
+Puedes probarla en http://mexicapis.org.mx/apis/transito-df-api (Por ejemplo con http://mexicapis.org.mx/apis/transito-df-api/vehiculos/183YTP)
 
-- Los verificentros en http://mexicapis.org.mx/transitodf/verificentros
-- Los corralones en http://mexicapis.org.mx/transitodf/corralones
+## Deploy local en Ubuntu
 
-![Carrot Mancera](http://438424cd093f86f0c7e0-2cd4f1b3b970cf6c05d6a60490c230b4.r88.cf2.rackcdn.com/mancera300613_g.jpg)
+- `git clone https://github.com/mexicapis/transito-df-api`
+- `cd transito-df-api`
+- `npm update`
+- `npm start` o `node app.js`
+
+## Correr tests
+
+Los tests están hechos con Mocha, para correrlos:
+
+`npm test`
 
 ## API
 
@@ -23,20 +32,9 @@ Endpoints:
 - /verificentros
 - /corralones
 
-## CLI
-
-Para los amantes de la línea de comandos:
-
-- Información de un vehículo ```php transito-df NUMERO_DE_PLACA``` ó ```./transito-df NUMERO_DE_PLACA```
-- Lista de verificentros ```php transito-df verificentros``` ó ```./transito-df verificentros```
-
-## Ejemplos
-
 ### /vehiculos/183YTP
 
-
 ```
-
 {
     "vehiculo": {
         "placas": "183YTP",
@@ -170,7 +168,6 @@ Para los amantes de la línea de comandos:
 ```
 
 ### /corralones
-
 
 ```
 {

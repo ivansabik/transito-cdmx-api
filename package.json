@@ -1,0 +1,23 @@
+{
+  "name": "transito-df-api",
+  "description": "App móvil multiplataforma para consultar info de automóviles del DF como infracciones, adeudos de tenencia, corralones y verificentros",
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha"
+  },
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "dependencies": {
+    "express": "^4.12.2",
+    "x-ray": "^1.0"
+  },
+  "devDependencies" : {
+    "mocha": "^2.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mexicapis/transito-df-api.git"
+  }
+}
