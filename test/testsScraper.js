@@ -1,4 +1,4 @@
-var assert = require('assert-diff')
+var assert = require('assert') //var assert = require('assert-diff')
 var fs = require('fs');
 var scraper = require('../lib/scraper.js');
 var fixtures = require('./fixtures');
@@ -7,8 +7,7 @@ var nock = require('nock');
 describe('Scraper', function(){
     it('should create scrapped objects with info based on a search pattern', function(done) {
 			fs.readFile(__dirname + '/fixtures-html/detallePlaca.php?placa=183YTP.html', 'utf8', function(err, html){
-				var mockHttp = nock('http://www.finanzas.df.gob.mx')
-					.persist()
+				nock('http://www.finanzas.df.gob.mx')
 					.get('/sma/detallePlaca.php?placa=183YTP')
 					.reply(200, html);
 				var testPattern = {
@@ -55,10 +54,9 @@ describe('Scraper', function(){
 		
 		it('should throw error if pattern is not valid regexp', function() {
 			fs.readFile(__dirname + '/fixtures-html/detallePlaca.php?placa=183YTP.html', 'utf8', function(err, html){
-				var mockHttp = nock('http://www.finanzas.df.gob.mx')
-					.persist()
-					.get('/sma/detallePlaca.php?placa=183YTP')
-					.reply(200, html);
+				nock('http://www.finanzas.df.gob.mx')
+          .get('/sma/detallePlaca.php?placa=183YTP')
+          .reply(200, html);
 				var testPattern = {
 					testNotValidRegex: 'NOT VALID'
 				};
@@ -72,8 +70,7 @@ describe('Scraper', function(){
 		
 		it('should scrape from html string without making http requests', function(done) {
 			fs.readFile(__dirname + '/fixtures-html/detallePlaca.php?placa=183YTP.html', 'utf8', function(err, html){
-				var mockHttp = nock('http://www.finanzas.df.gob.mx')
-					.persist()
+				nock('http://www.finanzas.df.gob.mx')
 					.get('/sma/detallePlaca.php?placa=183YTP')
 					.reply(200, html);
 				var testPattern = {
@@ -90,5 +87,4 @@ describe('Scraper', function(){
 				});
 			});
 		});
-		
 });

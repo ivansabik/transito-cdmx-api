@@ -1,14 +1,20 @@
 API Tránsito DF
 ===========
 
-[![Build Status](https://travis-ci.org/mandroslabs/transito-df.svg)](https://travis-ci.org/mexicapis/transito-df-api)
+[![Build Status](https://travis-ci.org/mexicapis/transito-df-api.svg)](https://travis-ci.org/mexicapis/transito-df-api)
 
 API REST no oficial de Tránsito DF, proporciona diversa info relacionada con aun auto por medio del número de placas como son adeudos de tenencia e infracciones. 
 Desarrollado con Javascript (Node), utiliza las libs:
 
 - express
+- cheerio
 
-Puedes probarla en http://mexicapis.org.mx/apis/transito-df-api (Por ejemplo con http://mexicapis.org.mx/apis/transito-df-api/vehiculos/183YTP)
+Para tests utiliza las libs:
+
+- mocha
+- assert-diff
+- nock
+- request-json
 
 ## Deploy local en Ubuntu
 
@@ -33,7 +39,7 @@ Endpoints:
 
 ### /vehiculos/183YTP
 
-```
+`
 {
     "vehiculo": {
         "placas": "183YTP",
@@ -134,11 +140,11 @@ Endpoints:
         "total_adeudos": 29863.8
     }
 }
-```
+`
 
 ### /verificentros
 
-```
+`
 {
 	"verificentros": [
 		{
@@ -164,11 +170,11 @@ Endpoints:
 		...
 	]
 }
-```
+`
 
 ### /corralones
 
-```
+`
 {
   "corralones": [
     {
@@ -201,4 +207,4 @@ Endpoints:
     ...
   ]
 }
-```
+`
