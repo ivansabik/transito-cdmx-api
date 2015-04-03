@@ -1,6 +1,6 @@
 {
   "name": "transito-df-api",
-  "description": "App móvil multiplataforma para consultar info de automóviles del DF como infracciones, adeudos de tenencia, corralones y verificentros",
+  "description": "API REST de Tránsito DF con info como adeudos de tenencia, infracciones y otra info",
   "scripts": {
     "start": "node app.js",
     "test": "mocha"
@@ -14,7 +14,11 @@
     "x-ray": "^1.0"
   },
   "devDependencies" : {
-    "mocha": "^2.2.1"
+    "mocha": "^2.2.1",
+    "assert-diff": "^1.0.1",
+    "nock": "^0.59.0",
+    "cheerio": "^0.19.0",
+    "request-json": "^0.5.2"
   },
   "repository": {
     "type": "git",

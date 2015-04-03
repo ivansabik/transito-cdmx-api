@@ -7,7 +7,6 @@ API REST no oficial de Tránsito DF, proporciona diversa info relacionada con au
 Desarrollado con Javascript (Node), utiliza las libs:
 
 - express
-- x-ray
 
 Puedes probarla en http://mexicapis.org.mx/apis/transito-df-api (Por ejemplo con http://mexicapis.org.mx/apis/transito-df-api/vehiculos/183YTP)
 
@@ -22,7 +21,7 @@ Puedes probarla en http://mexicapis.org.mx/apis/transito-df-api (Por ejemplo con
 
 Los tests están hechos con Mocha, para correrlos:
 
-`npm test`
+`npm test` o `mocha`
 
 ## API
 
