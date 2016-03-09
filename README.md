@@ -35,8 +35,7 @@ Para los amantes de la línea de comandos:
 ### /vehiculos/183YTP
 
 
-```
-
+```javascript
 {
     "vehiculo": {
         "placas": "183YTP",
@@ -141,7 +140,7 @@ Para los amantes de la línea de comandos:
 
 ### /verificentros
 
-```
+```javascript
 {
 	"verificentros": [
 		{
@@ -172,7 +171,7 @@ Para los amantes de la línea de comandos:
 ### /corralones
 
 
-```
+```javascript
 {
   "corralones": [
     {
