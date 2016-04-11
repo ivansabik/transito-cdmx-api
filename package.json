@@ -1,6 +1,6 @@
 {
-  "name": "transito-df-api",
-  "description": "API REST de Tránsito DF con info como adeudos de tenencia, infracciones y otra info",
+  "name": "transito-cdmx-api",
+  "description": "API REST con info de vehículos de la CDMX como adeudos de tenencia e infracciones",
   "scripts": {
     "start": "node app.js",
     "test": "mocha"
@@ -13,7 +13,9 @@
     "express": "^4.12.2",
     "cheerio": "^0.19.0",
     "request": "^2.54.0",
-    "x-ray": "^2.2.0"
+    "x-ray": "^2.2.0",
+    "commander": "^2.9.0",
+    "levenshtein": "~1.0"
   },
   "devDependencies" : {
     "mocha": "^2.2.1",
