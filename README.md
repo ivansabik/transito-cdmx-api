@@ -1,19 +1,12 @@
 API Tránsito DF
 ===========
+[![Build Status](https://travis-ci.org/ivansabik/transito-cdmx-api.svg?branch=master)](https://travis-ci.org/ivansabik/transito-cdmx-api)
 
-API REST no oficial de Tránsito DF, proporciona diversa info relacionada con aun auto por medio del número de placas como son adeudos de tenencia e infracciones. 
-Desarrollado como prueba en PHP, utiliza Composer para las librerías dependientes que son:
+API REST no oficial de Tránsito DF, proporciona diversa info relacionada con aun auto por medio del número de placas.
 
-- php-simple-html-dom-parser
-- php-curl-class
-- json-pretty
-
-Puedes probarla en http://mexicapis.org.mx/transitodf/, ej. con un Carrot que manejó Mancera (que por cierto le debe $30,000 pesos al gobierno) con http://mexicapis.org.mx/transitodf/vehiculos/183YTP:
-
-- Los verificentros en http://mexicapis.org.mx/transitodf/verificentros
-- Los corralones en http://mexicapis.org.mx/transitodf/corralones
-
-![Carrot Mancera](http://438424cd093f86f0c7e0-2cd4f1b3b970cf6c05d6a60490c230b4.r88.cf2.rackcdn.com/mancera300613_g.jpg)
+- Info del vehículo adeudos de tenencia e infracciones
+- Verificentros
+- Corralones
 
 ## API
 
@@ -21,19 +14,21 @@ Endpoints:
 
 - /vehiculos/NUMERO_PLACA
 - /verificentros
+- /verificentros?lat=19.4285&lon=-99.1277
 - /corralones
+- /corralones?lat=19.4285&lon=-99.1277
 
 ## CLI
 
 Para los amantes de la línea de comandos:
 
-- Información de un vehículo ```php transito-df NUMERO_DE_PLACA``` ó ```./transito-df NUMERO_DE_PLACA```
-- Lista de verificentros ```php transito-df verificentros``` ó ```./transito-df verificentros```
+- Información de un vehículo ```node transito-df NUMERO_DE_PLACA```
+- Lista de verificentros ```node transito-df verificentros```
+- Lista de corralones ```node transito-df corralones```
 
-## Ejemplos
+## Ejemplo de respuestas
 
 ### /vehiculos/183YTP
-
 
 ```javascript
 {
@@ -169,7 +164,6 @@ Para los amantes de la línea de comandos:
 ```
 
 ### /corralones
-
 
 ```javascript
 {
