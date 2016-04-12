@@ -1,15 +1,15 @@
-API Tránsito CDMX
+API infracciones CDMX
 ===========
-[![Build Status](https://travis-ci.org/ivansabik/transito-cdmx-api.svg?branch=master)](https://travis-ci.org/ivansabik/transito-cdmx-api)
+[![Build Status](https://travis-ci.org/ivansabik/infracciones-cdmx-api.svg?branch=master)](https://travis-ci.org/ivansabik/transito-cdmx-api)
 
-API REST no oficial de Tránsito DF, proporciona diversa info relacionada con aun auto por medio del número de placas.
-
-- Info del vehículo adeudos de tenencia e infracciones
+- Info de vehículo, adeudos de tenencia e infracciones por medio de número de placa
+- Adeudos de tenencia por número de placa
+- Tenencias por número de placa
 - Verificentros
 - Corralones
 
 ```
-git clone https://github.com/ivansabik/transito-cdmx-api.git
+git clone https://github.com/ivansabik/infracciones-cdmx-api.git
 npm install
 npm start
 ```
@@ -20,9 +20,11 @@ En http://localhost:3000/api/v1/ estará corriendo una instancia de la API.
 
 Endpoints:
 
-- /vehiculos/NUMERO_PLACA
-- /verificentros
-- /corralones
+- /api/v1/vehiculos/NUMERO_PLACA
+- /api/v1/vehiculos/NUMERO_PLACA/infracciones
+- /api/v1/vehiculos/NUMERO_PLACA/adeudos-tenencias
+- /api/v1/verificentros
+- /api/v1/corralones
 
 ## CLI
 
@@ -37,7 +39,7 @@ node cli-cdmx.js -h
     -o, --output        Ruta para guardar en JSON
 ```
 
-## /vehiculos/183YTP
+## /api/v1/vehiculos/183YTP
 
 ```javascript
 {
@@ -133,7 +135,7 @@ node cli-cdmx.js -h
 }
 ```
 
-## /vehiculos/183YTP/adeudos-tenencias
+## /api/v1/vehiculos/183YTP/adeudos-tenencias
 
 ```javascript
 {
@@ -251,7 +253,7 @@ node cli-cdmx.js -h
 }
 ```
 
-## /vehiculos/912TER/infracciones
+## /api/v1/vehiculos/912TER/infracciones
 
 ```javascript
 {
@@ -281,7 +283,7 @@ node cli-cdmx.js -h
 }
 ```
 
-## /verificentros
+## /api/v1/verificentros
 
 ```javascript
 {
@@ -311,7 +313,7 @@ node cli-cdmx.js -h
 }
 ```
 
-## /corralones
+## /api/v1/corralones
 
 ```javascript
 {
@@ -342,8 +344,7 @@ node cli-cdmx.js -h
       "longitud": 19.466936,
       "telefono": 57417855,
       "estado": "activo"
-    },
-    ...
+    }
   ]
 }
 ```
