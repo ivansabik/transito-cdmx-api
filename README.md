@@ -348,3 +348,7 @@ node cli-cdmx.js -h
   ]
 }
 ```
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ivansabik/infracciones-cdmx-api/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
