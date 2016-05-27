@@ -1,6 +1,6 @@
-API infracciones CDMX
+API Tránsito CDMX
 ===========
-[![Build Status](https://travis-ci.org/ivansabik/infracciones-cdmx-api.svg?branch=master)](https://travis-ci.org/ivansabik/transito-cdmx-api)
+[![Build Status](https://travis-ci.org/ivansabik/transito-cdmx-api.svg?branch=master)](https://travis-ci.org/ivansabik/transito-cdmx-api)
 
 - Info de vehículo, adeudos de tenencia e infracciones por medio de número de placa
 - Adeudos de tenencia por número de placa
@@ -9,12 +9,21 @@ API infracciones CDMX
 - Corralones
 
 ```
-git clone https://github.com/ivansabik/infracciones-cdmx-api.git
+git clone https://github.com/ivansabik/transito-cdmx-api.git
+cd transito-cdmx-api
 npm install
 npm start
 ```
 
 En http://localhost:3000/api/v1/ estará corriendo una instancia de la API.
+
+Alternativamente si quieres probarla con tu terminal:
+
+`npm install -g transito-df`
+
+Y después:
+
+`transito-df -p 186USA`
 
 ## API
 
@@ -29,7 +38,7 @@ Endpoints:
 ## CLI
 
 ```
-node cli-cdmx.js -h
+node cli.js -h
 
   Options:
 
@@ -348,7 +357,3 @@ node cli-cdmx.js -h
   ]
 }
 ```
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ivansabik/infracciones-cdmx-api/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
