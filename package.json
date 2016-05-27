@@ -5,25 +5,22 @@
   "license": "Apache 2.0",
   "scripts": {
     "start": "node app.js",
-    "test": "mocha"
+    "test": "node_modules/jasmine-node/bin/jasmine-node test"
   },
   "bin": {
     "transito-df": "cli.js"
   },
-  "directories": {
-    "doc": "doc",
-    "test": "test"
-  },
   "dependencies": {
-    "express": "^4.12.2",
-    "curlrequest": "^0.5.7",
-    "x-ray": "^2.2.0",
     "commander": "^2.9.0",
-    "levenshtein": "~1.0"
+    "curlrequest": "^0.5.7",
+    "express": "^4.12.2",
+    "levenshtein": "~1.0",
+    "x-ray": "^2.2.0"
   },
-  "devDependencies" : {
-    "mocha": "^2.2.1",
-    "assert-diff": "^1.0.1"
+  "devDependencies": {
+    "frisby": "^0.8.5",
+    "jasmine-node": "^1.14.5",
+    "nock": "^8.0.0"
   },
   "repository": {
     "type": "git",
