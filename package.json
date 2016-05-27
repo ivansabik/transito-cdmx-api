@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "express": "^4.12.2",
-    "request": "^2.54.0",
+    "curlrequest": "^0.5.7",
     "x-ray": "^2.2.0",
     "commander": "^2.9.0",
     "levenshtein": "~1.0"
