@@ -1,6 +1,8 @@
 {
-  "name": "transito-cdmx-api",
+  "name": "transito-df-api",
+  "version": "1.0.0",
   "description": "API REST con info de vehículos de la CDMX como adeudos de tenencia e infracciones",
+  "license": "Apache 2.0",
   "scripts": {
     "start": "node app.js",
     "test": "mocha"
@@ -22,6 +24,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ivansabik/transito-cdmx-api.git"
+    "url": "https://github.com/ivansabik/infracciones-cdmx-api.git"
   }
 }
