@@ -119,17 +119,17 @@ frisby.create('Error con placas no encontradas')
     //.inspectJSON()
     .toss();
 
-frisby.create('Obtener info general de un vehiculo sin infracciones ni adeudos')
-    .get(URL_API + '/vehiculos/165TXS/')
+frisby.create('Obtener info general de un vehiculo sin adeudos de tenencia')
+    .get(URL_API + '/vehiculos/608YTP/')
     .afterJSON(function(json){
-        expect(json.placa).toEqual('165TXS');
-        expect(json.modelo).toEqual('2006');
+        expect(json.placa).toEqual('608YTP');
+        expect(json.modelo).toEqual('2013');
         expect(json.num_cilindros).toEqual(4);
         expect(json.procedencia_nacional).toEqual(true);
-        expect(json.valor_factura).toEqual(128818);
-        expect(json.fecha_factura).toEqual('2006-01-31');
-        expect(json.depreciacion).toEqual(9661.35);
-        expect(json.depreciacion_restante).toEqual(119156.65);
+        expect(json.valor_factura).toEqual(186738);
+        expect(json.fecha_factura).toEqual('2012-09-22');
+        expect(json.depreciacion).toEqual(112042.8);
+        expect(json.depreciacion_restante).toEqual(74695.2);
     })
     //.inspectJSON()
     .toss();
