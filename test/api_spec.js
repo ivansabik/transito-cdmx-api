@@ -50,8 +50,8 @@ frisby.create('Obtener infracciones de un vehiculo sin infracciones')
     .inspectJSON()
     .toss();
 
-frisby.create('Obtener adeudos de un vehiculo con adeudos')
-    .get(URL_API + '/vehiculos/183YTP/adeudos-tenencias')
+    frisby.create('Obtener adeudos de tenencias de un vehiculo con adeudos')
+    .get(URL_API + '/vehiculos/183YTP/') // Debe ser /vehiculos/183YTP/adeudos-tenencias
     .expectJSON('adeudos_tenencias.?', {
         ejercicio: '2013',
         tenencia: 0,
@@ -109,7 +109,7 @@ frisby.create('Obtener adeudos de un vehiculo con adeudos')
     .inspectJSON()
     .toss();
 
-frisby.create('Obtener adeudos de un vehiculo sin adeudos')
+frisby.create('Obtener adeudos de tenencias de un vehiculo sin adeudos')
     .get(URL_API + '/vehiculos/608YTP/adeudos-tenencias')
     .expectJSON({
         placas: '608YTP',
