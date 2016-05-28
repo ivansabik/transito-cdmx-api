@@ -6,7 +6,7 @@ URL_FINANZAS = 'http://www.finanzas.df.gob.mx';
 URL_API = 'http://localhost:3000/api/v1';
 
 frisby.create('Obtener infracciones de un vehiculo con infracciones')
-    .get(URL_API + '/vehiculos/183YTP') // Debe ser /vehiculos/183YTP/infracciones
+    .get(URL_API + '/vehiculos/183YTP')
     .expectJSON('infracciones.?', {
         folio: '03038482657',
         fecha: '2013-09-06',
@@ -14,7 +14,6 @@ frisby.create('Obtener infracciones de un vehiculo con infracciones')
         motivo: 'POR NO RESPETAR LOS LÍMITES DE VELOCIDAD ESTABLECIDOS EN VÍAS PRIMARIAS, EN CASO DE NO HABER SEÑALAMIENTO   LA VELOCIDAD MÁXIMA SERÁ DE 70 KILÓMETROS POR HORA',
         fundamento: 'Artículo: 5, Fracción: V, Parrafo: , Inciso: A',
         sancion: '5 unidades de cuenta',
-        //sancion: '5 días de salario mínimo',
         monto_infraccion: 358.4,
         pagada: true
     })
@@ -38,20 +37,17 @@ frisby.create('Obtener infracciones de un vehiculo con infracciones')
         monto_infraccion: 716.8,
         pagada: true
     })
-    .inspectJSON()
+    //.inspectJSON()
     .toss();
 
 frisby.create('Obtener infracciones de un vehiculo sin infracciones')
-    .get(URL_API + '/vehiculos/902TER/infracciones')
-    .expectJSON({
-        placas: '902TER',
-        infracciones: []
-    })
-    .inspectJSON()
+    .get(URL_API + '/vehiculos/902TER/')
+    .expectJSON('infracciones', [])
+    //.inspectJSON()
     .toss();
 
-    frisby.create('Obtener adeudos de tenencias de un vehiculo con adeudos')
-    .get(URL_API + '/vehiculos/183YTP/') // Debe ser /vehiculos/183YTP/adeudos-tenencias
+frisby.create('Obtener adeudos de tenencias de un vehiculo con adeudos')
+    .get(URL_API + '/vehiculos/183YTP/')
     .expectJSON('adeudos_tenencias.?', {
         ejercicio: '2013',
         tenencia: 0,
@@ -106,16 +102,13 @@ frisby.create('Obtener infracciones de un vehiculo sin infracciones')
         total_recargo: 26.73,
         total: 259
     })
-    .inspectJSON()
+    //.inspectJSON()
     .toss();
 
 frisby.create('Obtener adeudos de tenencias de un vehiculo sin adeudos')
-    .get(URL_API + '/vehiculos/608YTP/adeudos-tenencias')
-    .expectJSON({
-        placas: '608YTP',
-        adeudos_tenencias: []
-    })
-    .inspectJSON()
+    .get(URL_API + '/vehiculos/608YTP/')
+    .expectJSON('adeudos_tenencias', [])
+    //.inspectJSON()
     .toss();
 
 frisby.create('Error con placas no encontradas')
@@ -123,5 +116,20 @@ frisby.create('Error con placas no encontradas')
     .expectJSON({
         error: 'Placas no encontradas'
     })
-    .inspectJSON()
+    //.inspectJSON()
+    .toss();
+
+frisby.create('Obtener info general de un vehiculo sin infracciones ni adeudos')
+    .get(URL_API + '/vehiculos/165TXS/')
+    .afterJSON(function(json){
+        expect(json.placa).toEqual('165TXS');
+        expect(json.modelo).toEqual('2006');
+        expect(json.num_cilindros).toEqual(4);
+        expect(json.procedencia_nacional).toEqual(true);
+        expect(json.valor_factura).toEqual(128818);
+        expect(json.fecha_factura).toEqual('2006-01-31');
+        expect(json.depreciacion).toEqual(9661.35);
+        expect(json.depreciacion_restante).toEqual(119156.65);
+    })
+    //.inspectJSON()
     .toss();

@@ -22,29 +22,6 @@ app.get(URL_API + '/vehiculos/:placas', function (req, res) {
   })
 });
 
-app.get(URL_API + '/vehiculos/:placas/infracciones', function (req, res) {
-  res.set('Content-Type', 'application/json');
-  var placas = req.params.placas;
-  scraper.scrapeInfracciones(placas, function(infracciones) {
-    res.send({
-      placas: placas,
-      infracciones: infracciones
-    });
-  })
-});
-
-app.get(URL_API + '/vehiculos/:placas/adeudos-tenencias', function (req, res) {
-  res.set('Content-Type', 'application/json');
-  var placas = req.params.placas;
-  scraper.scrapeAdeudosTenencias(placas, function(vehiculo) {
-    res.send({
-      placas: placas,
-      adeudos_tenencias: vehiculo.adeudos_tenencias,
-      monto_adeudo_tenencias: vehiculo.monto_adeudo_tenencias
-    });
-  })
-});
-
 app.get(URL_API + '/verificentros', function (req, res) {
   res.set('Content-Type', 'application/json');
   var placas = req.params.placas;

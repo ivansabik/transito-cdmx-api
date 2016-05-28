@@ -2,7 +2,7 @@
   "name": "transito-df",
   "version": "1.0.0",
   "description": "App para tu terminal con info de adeudos de tenencia e infracciones para la CDMX",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "scripts": {
     "start": "node app.js",
     "test": "node_modules/jasmine-node/bin/jasmine-node test"

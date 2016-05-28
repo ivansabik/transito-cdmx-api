@@ -2,9 +2,9 @@ API Tránsito CDMX
 ===========
 [![Build Status](https://travis-ci.org/ivansabik/transito-cdmx-api.svg?branch=master)](https://travis-ci.org/ivansabik/transito-cdmx-api)
 
-- Info de vehículo, adeudos de tenencia e infracciones por medio de número de placa
-- Adeudos de tenencia por número de placa
-- Tenencias por número de placa
+- Info de vehículo asociado a un de número de placa
+- Adeudos de tenencia asociados a un número de placa
+- Infracciones asociadas a un número de placa
 - Verificentros
 - Corralones
 
@@ -17,7 +17,7 @@ npm start
 
 En http://localhost:3000/api/v1/ estará corriendo una instancia de la API.
 
-Alternativamente si quieres probarla con tu terminal:
+Alternativamente si quieres obtener esta info desde la comodidad de tu terminal más cercana:
 
 `npm install -g transito-df`
 
@@ -30,8 +30,6 @@ Y después:
 Endpoints:
 
 - /api/v1/vehiculos/NUMERO_PLACA
-- /api/v1/vehiculos/NUMERO_PLACA/infracciones
-- /api/v1/vehiculos/NUMERO_PLACA/adeudos-tenencias
 - /api/v1/verificentros
 - /api/v1/corralones
 
@@ -43,8 +41,6 @@ node cli.js -h
   Options:
 
     -p, --placas        Placas
-    -t, --tenencias     Muestra sólo adeudos de tenencias
-    -i, --infracciones  Muestra sólo infracciones
     -o, --output        Ruta para guardar en JSON
 ```
 
@@ -141,154 +137,6 @@ node cli.js -h
     "monto_adeudo_tenencias": 765,
     "monto_adeudo_infracciones": 0,
     "monto_total_adeudos": 0
-}
-```
-
-## /api/v1/vehiculos/183YTP/adeudos-tenencias
-
-```javascript
-{
-    "placas": "134WEG",
-    "adeudos_tenencias": [
-        {
-            "ejercicio": "2014",
-            "tenencia": 293,
-            "subsidio": 0,
-            "actualizacion": 17.02,
-            "recargo": 34.28,
-            "condonacion_recargo": 0,
-            "total_tenencia": 344.3,
-            "derecho": 434,
-            "actualiza_derecho": 25.21,
-            "recargo_derecho": 50.78,
-            "total_derechos": 509.99,
-            "total_impuesto": 293,
-            "total_derecho": 434,
-            "total_actualiza": 42.23,
-            "total_recargo": 85.06,
-            "total": 854
-        },
-        {
-            "ejercicio": "2010",
-            "tenencia": 251,
-            "subsidio": 0,
-            "actualizacion": 56.07,
-            "recargo": 33.96,
-            "condonacion_recargo": 0,
-            "total_tenencia": 341.03,
-            "derecho": 291,
-            "actualiza_derecho": 65,
-            "recargo_derecho": 39.37,
-            "total_derechos": 395.37,
-            "total_impuesto": 251,
-            "total_derecho": 291,
-            "total_actualiza": 121.07,
-            "total_recargo": 73.33,
-            "total": 736
-        },
-        {
-            "ejercicio": "2012",
-            "tenencia": 271,
-            "subsidio": 0,
-            "actualizacion": 39.18,
-            "recargo": 34.3,
-            "condonacion_recargo": 0,
-            "total_tenencia": 344.48,
-            "derecho": 314,
-            "actualiza_derecho": 45.4,
-            "recargo_derecho": 39.74,
-            "total_derechos": 399.14,
-            "total_impuesto": 271,
-            "total_derecho": 314,
-            "total_actualiza": 84.58,
-            "total_recargo": 74.04,
-            "total": 744
-        },
-        {
-            "ejercicio": "2013",
-            "tenencia": 283,
-            "subsidio": 0,
-            "actualizacion": 27.7,
-            "recargo": 34.36,
-            "condonacion_recargo": 0,
-            "total_tenencia": 345.06,
-            "derecho": 411,
-            "actualiza_derecho": 40.23,
-            "recargo_derecho": 49.9,
-            "total_derechos": 501.13,
-            "total_impuesto": 283,
-            "total_derecho": 411,
-            "total_actualiza": 67.93,
-            "total_recargo": 84.26,
-            "total": 846
-        },
-        {
-            "ejercicio": "2011",
-            "tenencia": 262,
-            "subsidio": 0,
-            "actualizacion": 49.07,
-            "recargo": 34.4,
-            "condonacion_recargo": 0,
-            "total_tenencia": 345.47,
-            "derecho": 303,
-            "actualiza_derecho": 56.75,
-            "recargo_derecho": 39.78,
-            "total_derechos": 399.53,
-            "total_impuesto": 262,
-            "total_derecho": 303,
-            "total_actualiza": 105.82,
-            "total_recargo": 74.18,
-            "total": 745
-        },
-        {
-            "ejercicio": "2015",
-            "tenencia": 305.1,
-            "subsidio": 0,
-            "actualizacion": 7.92,
-            "recargo": 34.62,
-            "condonacion_recargo": 0,
-            "total_tenencia": 347.64,
-            "derecho": 455,
-            "actualiza_derecho": 11.83,
-            "recargo_derecho": 51.63,
-            "total_derechos": 518.46,
-            "total_impuesto": 305.1,
-            "total_derecho": 455,
-            "total_actualiza": 19.75,
-            "total_recargo": 86.25,
-            "total": 866
-        }
-    ]
-}
-```
-
-## /api/v1/vehiculos/912TER/infracciones
-
-```javascript
-{
-    "placas": "183YTP",
-    "infracciones": [
-        {
-            "folio": "03038482657",
-            "fecha": "2013-09-06",
-            "situacion": "Pagada ",
-            "motivo": "POR NO RESPETAR LOS LÍMITES DE VELOCIDAD ESTABLECIDOS EN VÍAS PRIMARIAS, EN CASO DE NO HABER SEÑALAMIENTO   LA VELOCIDAD MÁXIMA SERÁ DE 70 KILÓMETROS POR HORA",
-            "fundamento": "Artículo: 5, Fracción: V, Parrafo: , Inciso: A",
-            "sancion": "5 unidades de cuenta ",
-            "monto_infraccion": 358.4,
-            "pagada": true
-        },
-        {
-            "folio": "04144419377",
-            "fecha": "2014-07-11",
-            "situacion": "Pagada ",
-            "motivo": "POR NO AJUSTARSE EL CINTURÓN DE SEGURIDAD Y ASEGURARSE QUE LOS DEMÁS PASAJEROS TAMBIÉN SE LO AJUSTEN, CUANDO SE TRATE DE MENORES DE 12 AÑOS O PERSONAS CON DISCAPACIDAD, DEBERÁN SER TRANSPORTADOS UTILIZANDO LOS SISTEMAS DE RETENCIÓN PERTINENTES.",
-            "fundamento": "Artículo: 5, Fracción: VI, Parrafo: , Inciso: ",
-            "sancion": "5 unidades de cuenta ",
-            "monto_infraccion": 358.4,
-            "pagada": true
-        }
-    ]
 }
 ```
 
