@@ -6,7 +6,7 @@ URL_FINANZAS = 'http://www.finanzas.df.gob.mx';
 URL_API = 'http://localhost:3000/api/v1';
 
 frisby.create('Obtener infracciones de un vehiculo con infracciones')
-    .get(URL_API + '/vehiculos/183YTP/infracciones')
+    .get(URL_API + '/vehiculos/183YTP') // Debe ser /vehiculos/183YTP/infracciones
     .expectJSON('infracciones.?', {
         folio: '03038482657',
         fecha: '2013-09-06',
@@ -42,7 +42,7 @@ frisby.create('Obtener infracciones de un vehiculo con infracciones')
     .toss();
 
 frisby.create('Obtener infracciones de un vehiculo sin infracciones')
-    .get(URL_API + '/vehiculos/902TER/') // Debe ser /vehiculos/183YTP/infracciones
+    .get(URL_API + '/vehiculos/902TER/infracciones')
     .expectJSON({
         placas: '902TER',
         infracciones: []
