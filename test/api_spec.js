@@ -38,6 +38,7 @@ frisby.create('Obtener infracciones de un vehiculo con infracciones')
         monto_infraccion: 716.8,
         pagada: true
     })
+    .inspectJSON()
     .toss();
 
 frisby.create('Obtener infracciones de un vehiculo sin infracciones')
@@ -46,6 +47,7 @@ frisby.create('Obtener infracciones de un vehiculo sin infracciones')
         placas: '902TER',
         infracciones: []
     })
+    .inspectJSON()
     .toss();
 
 frisby.create('Obtener adeudos de un vehiculo con adeudos')
@@ -104,6 +106,7 @@ frisby.create('Obtener adeudos de un vehiculo con adeudos')
         total_recargo: 26.73,
         total: 259
     })
+    .inspectJSON()
     .toss();
 
 frisby.create('Obtener adeudos de un vehiculo sin adeudos')
@@ -112,6 +115,7 @@ frisby.create('Obtener adeudos de un vehiculo sin adeudos')
         placas: '608YTP',
         adeudos_tenencias: []
     })
+    .inspectJSON()
     .toss();
 
 frisby.create('Error con placas no encontradas')
@@ -119,4 +123,5 @@ frisby.create('Error con placas no encontradas')
     .expectJSON({
         error: 'Placas no encontradas'
     })
+    .inspectJSON()
     .toss();
