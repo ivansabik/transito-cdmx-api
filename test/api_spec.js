@@ -42,7 +42,7 @@ frisby.create('Obtener infracciones de un vehiculo con infracciones')
     .toss();
 
 frisby.create('Obtener infracciones de un vehiculo sin infracciones')
-    .get(URL_API + '/vehiculos/902TER/infracciones')
+    .get(URL_API + '/vehiculos/902TER/') // Debe ser /vehiculos/183YTP/infracciones
     .expectJSON({
         placas: '902TER',
         infracciones: []
