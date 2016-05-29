@@ -121,7 +121,7 @@ frisby.create('Error con placas no encontradas')
 
 frisby.create('Obtener info general de un vehiculo sin adeudos de tenencia')
     .get(URL_API + '/vehiculos/608YTP/')
-    .afterJSON(function(json){
+    .afterJSON(function(json) {
         expect(json.placa).toEqual('608YTP');
         expect(json.modelo).toEqual('2013');
         expect(json.num_cilindros).toEqual(4);
