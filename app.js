@@ -9,15 +9,15 @@ URL_API = '/api/v1'
 app.disable('x-powered-by');
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
 
 app.get(URL_API + '/vehiculos/:placas', function (req, res) {
   res.set('Content-Type', 'application/json');
   var placas = req.params.placas;
-  scraper.scrapeVehiculo(placas, function(vehiculo) {
+  scraper.scrapeVehiculo(placas.toUpperCase(), function(vehiculo) {
     res.send(vehiculo);
   })
 });
