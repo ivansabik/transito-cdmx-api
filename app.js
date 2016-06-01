@@ -34,7 +34,7 @@ app.get(URL_API + '/vehiculos/:placas', function(req, res) {
 app.get(URL_API + '/verificentros', function(req, res) {
     res.set('Content-Type', 'application/json');
     var placas = req.params.placas;
-    scraper.scrapeVehiculo(placas, function(vehiculo) {
+    scraper.scrapeVehiculo(placas.toUpperCase(), function(vehiculo) {
         res.send(vehiculo);
     })
 });
