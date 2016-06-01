@@ -17,7 +17,7 @@ app.use(function(req, res, next) {
 app.get(URL_API + '/vehiculos/:placas', function(req, res) {
     res.set('Content-Type', 'application/json');
     var placas = req.params.placas;
-    scraper.scrapeVehiculo(placas, function(vehiculo) {
+    scraper.scrapeVehiculo(placas.toUpperCase(), function(vehiculo) {
         Zalamero = require('zalamero');
         logger = new Zalamero({
             mongoUrl: 'mongodb://:@:/transito-cdmx-api',
@@ -33,10 +33,7 @@ app.get(URL_API + '/vehiculos/:placas', function(req, res) {
 
 app.get(URL_API + '/verificentros', function(req, res) {
     res.set('Content-Type', 'application/json');
-    var placas = req.params.placas;
-    scraper.scrapeVehiculo(placas.toUpperCase(), function(vehiculo) {
-        res.send(vehiculo);
-    })
+    res.send(verificentros);
 });
 
 app.get(URL_API + '/corralones', function(req, res) {
