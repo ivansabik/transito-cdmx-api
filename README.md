@@ -2,6 +2,8 @@ API Tránsito CDMX
 ===========
 [![Build Status](https://travis-ci.org/ivansabik/transito-cdmx-api.svg?branch=master)](https://travis-ci.org/ivansabik/transito-cdmx-api)
 
+>Este repo ya no recibe mantenimiento ni se están desarrollando nuevas funcionalidades. Si estás interesado en darle mantenimiento y eventualmente ser el dueño/administrador por favor crea un nuevo Issue.
+
 - Info de vehículo asociado a un de número de placa
 - Adeudos de tenencia asociados a un número de placa
 - Infracciones asociadas a un número de placa
